@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for item in queue %}
+    <p>{{item.id}} on {{item.gamemode}}</p>
+    {% endfor %}
+    <form action="/submit" method="POST">
+        <label for="map">Choose an Map:</label>
+        <select name="map" id="map">
+            {% for map in maps %}
+                <option value="{{ map.display_name }}">{{ map.display_name }}</option>
+            {% endfor %}
+        </select>
+        <label for="game">Choose an Gamemode:</label>
+        <select name="game" id="game">
+            {% for game in gamemodes %}
+                <option value="{{ game.display_name }}">{{ game.display_name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
