@@ -48,7 +48,7 @@ def index():
     print(maps, gamemodes)
     return render_template("index.html", maps=maps, gamemodes=gamemodes, queue=queue)
 
-@app.route("/submit", methods=["POST"])
+@app.route("/add", methods=["POST"])
 def submit():
     map = request.form.get('map')
     game = request.form.get('game')
@@ -62,6 +62,40 @@ def submit():
     }
 
     response = requests.post(url, json=params)
+
+    return redirect(url_for('index'))
+
+@app.route("/create_map", methods=["POST"])
+def create_map():
+    id = request.form.get('map_id')
+    display_name = request.form.get('map_display')
+
+    new_map = Maps(map_id=id, display_name=display_name)
+    db.session.add(new_map)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
+@app.route("/create_gamemode", methods=["POST"])
+def create_gamemode():
+    id = request.form.get('gamemode_id')
+    display_name = request.form.get('gamemode_display')
+
+    new_gamemode = Maps(gamemode_id=id, display_name=display_name)
+    db.session.add(new_gamemode)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
+@app.route('/remove', methods=['POST'])
+def remove():
+    uuid = request.get_json()['uuid']
+
+    url = f'http://localhost:5002/delete/{uuid}'
+
+    response = requests.post(url)
+
+    print(response)
 
     return redirect(url_for('index'))
 

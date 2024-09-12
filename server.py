@@ -49,7 +49,10 @@ def delete(uuid):
     for item in rotations:
         if item['uuid'] == uuid:
             rotations.remove(item)
+            server.create_game_ini(rotations)
             return jsonify({"status": True})
+        
+    return jsonify({"status": False})
         
 @app.route('/get', methods=['GET'])
 def get():

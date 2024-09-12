@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <title>Document</title>
 </head>
 <body>
     {% for item in queue %}
     <p>{{item.id}} on {{item.gamemode}}</p>
+    <button onclick="remove('{{item.uuid}}')" value="{{item.uuid}}">Remove</button>
     {% endfor %}
-    <form action="/submit" method="POST">
+    <form action="/add" method="POST">
         <label for="map">Choose an Map:</label>
         <select name="map" id="map">
             {% for map in maps %}
@@ -22,7 +24,50 @@
                 <option value="{{ game.display_name }}">{{ game.display_name }}</option>
             {% endfor %}
         </select>
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
+    </form>
+    <form action="/create_map" method="POST">
+        <label for="map_id">Map ID, its UGC ID</label>
+        <input name="map_id">
+
+        <label for="map_display">Custom Display Name</label>
+        <input name="map_display">
+
+        <button type="submit">Add</button>
+    </form>
+    <form action="/create_gamemode" method="POST">
+        <label for="gamemode_id">Gamemode ID, its UGC ID</label>
+        <input name="gamemode_id">
+
+        <label for="gamemode_display">Custom Display Name</label>
+        <input name="gamemode_display">
+
+        <button type="submit">Add</button>
     </form>
 </body>
+<script>
+    function remove (uuid) {
+        fetch(`{{url_for('remove')}}`, {
+            method: "POST",
+            body: JSON.stringify({ "uuid": uuid }),
+            headers: {
+                    'Content-Type': 'application/json'
+            },
+        }); 
+    }
+
+    // remove_btn = document.getElementById('remove-btn');
+
+    // remove_btn.addEventListener("click", function(event) {
+    //     fetch(`{{url_for('remove')}}`, {
+    //         method: "POST",
+    //         body: JSON.stringify({ "uuid": this.value }),
+    //         headers: {
+    //                 'Content-Type': 'application/json'
+    //         },
+    //     }); 
+    //     // console.log(this.value)
+    //     // location.reload()
+    // });
+</script>
 </html>
