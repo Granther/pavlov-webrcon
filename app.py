@@ -10,11 +10,12 @@ from flask_login import LoginManager, login_user, current_user, logout_user, log
 
 from db_factory import db
 from models import User, Map, Mod, GameMode, ModPack, Profile
-from forms import LoginForm
+from forms import LoginForm, RegisterForm, AddProfileRotationForm
+from logger import create_logger
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv("SECRET_KEY", "backup-key")
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URI", "sqlite:///backup.db")
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "backup-key")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI", "sqlite:///backup.db")
 
 db.init_app(app)
 bcrypt = Bcrypt(app)
@@ -24,6 +25,8 @@ login_manager.login_view = 'login'
 login_manager.login_message = None
 login_manager.login_message_category = 'info'
 
+logger = create_logger(__name__)
+
 with app.app_context():
     db.create_all()
 
@@ -31,7 +34,7 @@ with app.app_context():
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-@app.route("/index")
+@app.route("/")
 @login_required
 def index():
     return render_template("index.html")
@@ -44,63 +47,44 @@ def login():
         if user and app.bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
             return redirect(url_for('index'))
-            # next_page = request.args.get('next')
-            # return redirect(next_page) if next_page else redirect(url_for('home'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
 
     return render_template('login.html', title='Login', form=form)
 
+@app.route("/register", methods=['GET', 'POST'])
+@login_required
+def register():
+    form = RegisterForm()
+    if form.validate_on_submit():
+        hashed_password = app.bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        username = User.query.filter_by(username=form.username.data).first()
+        if username:
+            flash('Register Unsuccessful. Username already associated with account', 'danger')
+            return render_template("register.html", title='Register', form=form)
 
-# @main.route("/register", methods=['GET', 'POST'])
-# def register():
-#     form = RegistrationForm()
-#     if form.validate_on_submit():
-#         hashed_password = current_app.bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-#         email = User.query.filter_by(email=form.email.data).first()
-#         if email:
-#             flash('Register Unsuccessful. Email already associated with account', 'danger')
-#             return render_template("register.html", title='Register', form=form)
+        user = User(username=form.username.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! You can now log in.', 'success')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register', form=form)
 
-#         user = User(username=form.username.data, email=form.email.data, password=hashed_password)
-#         db.session.add(user)
-#         db.session.commit()
-#         flash('Your account has been created! You can now log in.', 'success')
-#         return redirect(url_for('main.login'))
-#     return render_template('register.html', title='Register', form=form)
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 
-# @main.route("/login", methods=['GET', 'POST'])
-# def login():
-#     form = LoginForm()
-#     if form.validate_on_submit():
-#         user = User.query.filter_by(email=form.email.data).first()
-#         if user and current_app.bcrypt.check_password_hash(user.password, form.password.data):
-#             login_user(user, remember=form.remember.data)
-#             return redirect(url_for('main.index'))
-#             # next_page = request.args.get('next')
-#             # return redirect(next_page) if next_page else redirect(url_for('home'))
-#         else:
-#             flash('Login Unsuccessful. Please check email and password', 'danger')
+@app.route("/admin", methods=['POST'])
+@login_required
+def admin():
+    form = AddProfileRotationForm()
 
-#     return render_template('login.html', title='Login', form=form)
+    if form.validate_on_submit():
+        logger.debug(form.profileid.data)
+        return render_template("admin.html", title="Admin Panel", form=form)
 
-# @main.route("/logout")
-# def logout():
-#     logout_user()
-#     return redirect(url_for('main.login'))
-
-# @main.route('/')
-# def index():
-#     if not session.get("likes", False):
-#         session['likes'] = []
-#     stories = []
-#     result = Story.query.order_by(db.desc(Story.likes)).all()
-
-#     for story in result:
-#         reporter = Reporter.query.filter_by(id=story.reporter_id).first()
-#         stories.append({"id":story.id, "title":story.title, "content":story.content, "uuid":story.uuid, "reportername":reporter.name, "likes":story.likes})
-
-#     return render_template("index.html", stories=stories)
+    return render_template("admin.html", title="Admin Panel", form=form)
 
 # @main.route("/generate",  methods=['GET', 'POST'])
 # @login_required
@@ -418,3 +402,6 @@ def login():
 #         return render_template("reporter.html", **reporter, stories=results.stories)
 
 #     return render_template("error.html", msg="Reporter Not Found")
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)

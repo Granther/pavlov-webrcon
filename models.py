@@ -15,34 +15,34 @@ class User(db.Model, UserMixin):
 class Map(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
 
 class GameMode(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
 
 class Mod(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
 
 class ModPack(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     name = db.Column(db.String, nullable=False)
     mods = db.relationship('Mods', backref='mod_pack', lazy=True)
 
 class Profile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     name = db.Column(db.String, nullable=False)
     mod_packs = db.relationship('ModPack', backref='profile', lazy=True)
