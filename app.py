@@ -53,7 +53,6 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 @app.route("/register", methods=['GET', 'POST'])
-@login_required
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -81,7 +80,12 @@ def admin():
     form = AddProfileRotationForm()
 
     if form.validate_on_submit():
-        logger.debug(form.profileid.data)
+        logger.debug("Profile ID to switch to:", form.profileid.data)
+        profile = Profile.query.filter_by(id=form.profileid.data).first()
+
+        # Switch to profile on Pavlov Server
+        logger.debug("profile map id", profile.map.id)
+
         return render_template("admin.html", title="Admin Panel", form=form)
 
     return render_template("admin.html", title="Admin Panel", form=form)
