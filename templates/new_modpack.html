@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Login Dog{% endblock %}
+
+{% block list %}{% endblock %}
+
+{% block content %}
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div>
+            {{ form.mods.label }}<br>
+            {{ form.mods(size=10) }}  <!-- `size` attribute sets the height of the select box -->
+        </div>
+        
+        <div>
+            <button type="submit">Create Mod Pack</button>
+        </div>
+    </form>
+</body>
+{% endblock %}

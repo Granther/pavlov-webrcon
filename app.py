@@ -10,12 +10,12 @@ from flask_login import LoginManager, login_user, current_user, logout_user, log
 
 from db_factory import db
 from models import User, Map, Mod, GameMode, ModPack, Profile
-from forms import LoginForm, RegisterForm, AddProfileRotationForm
+from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, NewModpackForm, ModPackForm
 from logger import create_logger
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "backup-key")
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI", "sqlite:///backup.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI", "sqlite:///backup.db")
 
 db.init_app(app)
 bcrypt = Bcrypt(app)
@@ -35,17 +35,78 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 @app.route("/")
-@login_required
 def index():
     return render_template("index.html")
+
+@app.route("/home", methods=['POST', 'GET'])
+@login_required
+def home():
+    map_form = NewMapForm()
+    gamemode_form = NewGamemodeForm()
+    mod_form = NewModForm()
+
+    if map_form.validate_on_submit():
+        res = create(user_id=current_user.id, name=map_form.name.data, ugcid=map_form.id.data)
+        if not res:
+            flash("Error creating new map entry")
+            return redirect(url_for('error'))
+        
+        flash("Successfully created new map entry")
+        logger.debug(f"Create new map {map_form.name.data}")
+        return redirect(url_for('home'))
+    
+    if gamemode_form.validate_on_submit():
+        res = create(user_id=current_user.id, name=gamemode_form.name.data, ugcid=gamemode_form.id.data)
+        if not res:
+            flash("Error creating new gamemode entry")
+            return redirect(url_for('error'))
+        
+        flash("Successfully created new gamemode entry")
+        logger.debug(f"Create new map {gamemode_form.name.data}")
+        return redirect(url_for('home'))
+    
+    if mod_form.validate_on_submit():
+        res = create(user_id=current_user.id, name=mod_form.name.data, ugcid=mod_form.id.data)
+        if not res:
+            flash("Error creating new mod entry")
+            return redirect(url_for('error'))
+        
+        flash("Successfully created new mod entry")
+        logger.debug(f"Create new map {mod_form.name.data}")
+        return redirect(url_for('home'))
+
+    return render_template("home.html", map_form=map_form, 
+                           gamemode_form=gamemode_form, mod_form=mod_form)
+
+def create(user_id: int, name: str, ugcid: str) -> bool:
+    try:
+        new_map = Map(user_id=user_id, name=name, UGCId=ugcid)
+        db.session.add(new_map)
+        db.session.commit()
+        return True
+    except Exception as e:
+        return False
+    
+@app.route("/new_modpack", methods=['GET', 'POST'])
+def new_modpack():
+    form = ModPackForm()
+
+    if form.validate_on_submit():
+        selected_mods = form.mods.data 
+
+        for mod in selected_mods:
+            print(mod.name)
+        return redirect(url_for('home'))
+    
+    return render_template("new_modpack.html", form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and app.bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user, remember=form.remember.data)
+        user = User.query.filter_by(username=form.username.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user)
             return redirect(url_for('index'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
@@ -56,7 +117,7 @@ def login():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        hashed_password = app.bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         username = User.query.filter_by(username=form.username.data).first()
         if username:
             flash('Register Unsuccessful. Username already associated with account', 'danger')
@@ -73,6 +134,10 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+@app.route("/error")
+def error():
+    return render_template("error.html")
 
 @app.route("/admin", methods=['POST'])
 @login_required

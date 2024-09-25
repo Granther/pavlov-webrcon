@@ -10,12 +10,13 @@ class User(db.Model, UserMixin):
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     username = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
-    containers = db.relationship('Containers', backref='users', lazy=True)
+    profiles = db.relationship('Profile', backref='user', lazy=True)
 
 class Map(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
 
@@ -23,6 +24,7 @@ class GameMode(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
 
@@ -30,6 +32,7 @@ class Mod(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    modpack_id = db.Column(db.Integer, db.ForeignKey('mod_pack.id'))
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
 
@@ -37,8 +40,9 @@ class ModPack(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
     name = db.Column(db.String, nullable=False)
-    mods = db.relationship('Mods', backref='mod_pack', lazy=True)
+    mods = db.relationship('Mod', backref='mod_pack', lazy=True)
 
 class Profile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
