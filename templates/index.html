@@ -1,73 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    {% for item in queue %}
-    <p>{{item.id}} on {{item.gamemode}}</p>
-    <button onclick="remove('{{item.uuid}}')" value="{{item.uuid}}">Remove</button>
-    {% endfor %}
-    <form action="/add" method="POST">
-        <label for="map">Choose an Map:</label>
-        <select name="map" id="map">
-            {% for map in maps %}
-                <option value="{{ map.display_name }}">{{ map.display_name }}</option>
-            {% endfor %}
-        </select>
-        <label for="game">Choose an Gamemode:</label>
-        <select name="game" id="game">
-            {% for game in gamemodes %}
-                <option value="{{ game.display_name }}">{{ game.display_name }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Add</button>
-    </form>
-    <form action="/create_map" method="POST">
-        <label for="map_id">Map ID, its UGC ID</label>
-        <input name="map_id">
+{% extends 'base.html' %}
 
-        <label for="map_display">Custom Display Name</label>
-        <input name="map_display">
+{% block title %}UpDog News{% endblock %}
 
-        <button type="submit">Add</button>
-    </form>
-    <form action="/create_gamemode" method="POST">
-        <label for="gamemode_id">Gamemode ID, its UGC ID</label>
-        <input name="gamemode_id">
+{% block list %}
+<li>
+    <a href="{{url_for('login')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+</li>
+{% endblock %}
 
-        <label for="gamemode_display">Custom Display Name</label>
-        <input name="gamemode_display">
-
-        <button type="submit">Add</button>
-    </form>
+{% block content %}
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+    <div class="relative container mx-auto px-4 py-8 flex-grow text-black">
+        <div class="grid grid-cols-1 gap-6">
+            <h1>Hello</h1>
+        </div>
+    </div>
 </body>
-<script>
-    function remove (uuid) {
-        fetch(`{{url_for('remove')}}`, {
-            method: "POST",
-            body: JSON.stringify({ "uuid": uuid }),
-            headers: {
-                    'Content-Type': 'application/json'
-            },
-        }); 
-    }
-
-    // remove_btn = document.getElementById('remove-btn');
-
-    // remove_btn.addEventListener("click", function(event) {
-    //     fetch(`{{url_for('remove')}}`, {
-    //         method: "POST",
-    //         body: JSON.stringify({ "uuid": this.value }),
-    //         headers: {
-    //                 'Content-Type': 'application/json'
-    //         },
-    //     }); 
-    //     // console.log(this.value)
-    //     // location.reload()
-    // });
-</script>
-</html>
+{% endblock %}
