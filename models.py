@@ -20,6 +20,9 @@ class Map(db.Model):
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
 
+    def __str__(self):
+        return self.name
+
 class GameMode(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
@@ -27,6 +30,9 @@ class GameMode(db.Model):
     profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
+
+    def __str__(self):
+        return self.name
 
 class Mod(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -47,6 +53,9 @@ class ModPack(db.Model):
     profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
     name = db.Column(db.String, nullable=False)
     mods = db.relationship('Mod', backref='mod_pack', lazy=True)
+
+    def __str__(self):
+        return self.name
 
 class Profile(db.Model):
     id = db.Column(db.Integer, primary_key=True)

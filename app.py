@@ -224,7 +224,7 @@ def admin():
             for mod in profile.modpack.mods:
                 mods.append(mod.UGCId)
 
-            if not set_profile(map_id=profile.map.id, gamemode_id=profile.gamemode.id, mods=mods):
+            if not set_profile(map_id=profile.map.UGCId, gamemode_id=profile.gamemode.UGCId, mods=mods):
                 logger.fatal(f"Failed to set profile {profile.id} {profile.name}")
                 raise RuntimeError
             
@@ -236,6 +236,8 @@ def admin():
         return redirect(url_for('admin'))
 
     return render_template("admin.html", title="Admin Panel", form=form, profiles=profiles)
+
+# @app.route("/set_")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

@@ -8,7 +8,7 @@ from logger import create_logger
 class PavRCON:
     def __init__(self):
         self.SERVER_IP = os.environ.get("SERVER_IP")
-        self.SERVER_PORT = os.environ.get("SERVER_PORT")
+        self.RCON_PORT = int("9100")
         self.RCON_PASSWORD = os.environ.get("RCON_PASSWORD")
         self.logger = create_logger(__name__)
 
@@ -22,7 +22,7 @@ class PavRCON:
        
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.connect((self.SERVER_IP, self.SERVER_PORT))
+            sock.connect((self.SERVER_IP, self.RCON_PORT))
             
             # Wait for "Password: " prompt
             server_prompt = sock.recv(1024).decode('utf-8')
@@ -77,20 +77,27 @@ class PavRCON:
         
         if rcon_socket:
             clear_mods_response = self._send_rcon_command(rcon_socket, "UGCClearModList")
-            if clear_mods_response:
+            if bool(clear_mods_response['Successful']):
                 self.logger.info("Cleared mods from Game.ini")
+            else:
+                self.logger.fatal("Error occured while clearing mods")
 
             for mod in mods:
                 response = self._send_rcon_command(rcon_socket, f"UGCAddMod {mod}")
-                if response:
+                self.logger.info(response)
+                if bool(response['Successful']):
                     self.logger.info(f"Added modID {mod} to Game.ini")
+                else:
+                    self.logger.fatal("Error adding modID")
 
             new_rotation_response = self._send_rcon_command(rcon_socket, f"AddMapRotation {map_id} {gamemode_id}")
-            if new_rotation_response:
+            if bool(new_rotation_response['Successful']):
                 self.logger.info(f"Added new rotation of {map_id} with gamemode {gamemode_id}")
+            else:
+                self.logger.fatal("Error occured while adding new rotation")
 
             server_info = self._send_rcon_command(rcon_socket, "MapList")
-            if server_info:
+            if bool(server_info['Successful']):
                 mapList = server_info.get("MapList")
                 self.logger.info(f"Current Rotation: {mapList}")
 
@@ -99,10 +106,16 @@ class PavRCON:
                         continue
 
                     response = self._send_rcon_command(rcon_socket, f"RemoveMapRotation {entry['MapId']} {entry['GameMode']}")
-                    if response:
+                    if bool(response['Successful']):
                         self.logger.info(f"Removed {entry} from rotation")
-            
+                    else:
+                        self.logger.fatal("Error occured while removing an entry from rotation")
+            else:
+                self.logger.fatal("Error occured while getting server info")
+                    
             rcon_socket.close()
+
+            self.rotate_map()
 
             return True
         

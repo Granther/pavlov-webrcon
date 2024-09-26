@@ -48,3 +48,162 @@
 2024-09-25 21:32:21,347 - __main__ - DEBUG - profile map id 1
 2024-09-25 21:32:21,347 - __main__ - DEBUG - 1
 2024-09-25 21:32:50,724 - __main__ - CRITICAL - Failed to set profile gluh gluh
+2024-09-25 21:59:31,058 - __main__ - CRITICAL - Failed to set profile 3 gluh
+2024-09-25 22:03:38,218 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:03:38,270 - pavrcon - INFO - Added modID 1 to Game.ini
+2024-09-25 22:03:38,328 - pavrcon - INFO - Added new rotation of 1 with gamemode 1
+2024-09-25 22:03:38,378 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'TTT'}, {'MapId': '1', 'GameMode': '1'}]
+2024-09-25 22:03:38,452 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'TTT'} from rotation
+2024-09-25 22:03:38,506 - pavrcon - INFO - Removed {'MapId': '1', 'GameMode': '1'} from rotation
+2024-09-25 22:07:49,343 - __main__ - DEBUG - Create new map sand
+2024-09-25 22:07:56,320 - __main__ - DEBUG - Create new gamemode TTT
+2024-09-25 22:08:18,775 - __main__ - DEBUG - <ModPack 1>
+2024-09-25 22:08:27,769 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:08:27,815 - pavrcon - INFO - Added modID 1 to Game.ini
+2024-09-25 22:08:27,869 - pavrcon - INFO - Added new rotation of 2 with gamemode 2
+2024-09-25 22:08:27,917 - pavrcon - INFO - Current Rotation: [{'MapId': '1', 'GameMode': '1'}, {'MapId': '2', 'GameMode': '2'}]
+2024-09-25 22:08:27,966 - pavrcon - INFO - Removed {'MapId': '1', 'GameMode': '1'} from rotation
+2024-09-25 22:08:28,013 - pavrcon - INFO - Removed {'MapId': '2', 'GameMode': '2'} from rotation
+2024-09-25 22:08:28,176 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:11:04,137 - __main__ - DEBUG - Create new mod ttt custom
+2024-09-25 22:11:27,414 - __main__ - DEBUG - <ModPack 2>
+2024-09-25 22:11:38,765 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:11:38,818 - pavrcon - INFO - Added modID UGC3970532 to Game.ini
+2024-09-25 22:11:38,874 - pavrcon - INFO - Added new rotation of 2 with gamemode 2
+2024-09-25 22:11:38,918 - pavrcon - INFO - Current Rotation: [{'MapId': '2', 'GameMode': '2'}, {'MapId': '2', 'GameMode': '2'}]
+2024-09-25 22:11:38,969 - pavrcon - INFO - Removed {'MapId': '2', 'GameMode': '2'} from rotation
+2024-09-25 22:11:39,023 - pavrcon - INFO - Removed {'MapId': '2', 'GameMode': '2'} from rotation
+2024-09-25 22:11:39,206 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:12:19,343 - __main__ - DEBUG - Create new map bridge
+2024-09-25 22:12:32,892 - __main__ - DEBUG - <ModPack 2>
+2024-09-25 22:12:47,990 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:12:48,045 - pavrcon - INFO - Added modID UGC3970532 to Game.ini
+2024-09-25 22:12:48,092 - pavrcon - INFO - Added new rotation of 3 with gamemode 2
+2024-09-25 22:12:48,146 - pavrcon - INFO - Current Rotation: [{'MapId': '2', 'GameMode': '2'}, {'MapId': '3', 'GameMode': '2'}]
+2024-09-25 22:12:48,195 - pavrcon - INFO - Removed {'MapId': '2', 'GameMode': '2'} from rotation
+2024-09-25 22:12:48,250 - pavrcon - INFO - Removed {'MapId': '3', 'GameMode': '2'} from rotation
+2024-09-25 22:12:48,441 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:13:23,499 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:13:23,552 - pavrcon - INFO - Added modID UGC3970532 to Game.ini
+2024-09-25 22:13:23,608 - pavrcon - INFO - Added new rotation of 3 with gamemode 2
+2024-09-25 22:13:23,648 - pavrcon - INFO - Current Rotation: [{'MapId': '3', 'GameMode': '2'}, {'MapId': '3', 'GameMode': '2'}]
+2024-09-25 22:13:23,711 - pavrcon - INFO - Removed {'MapId': '3', 'GameMode': '2'} from rotation
+2024-09-25 22:13:23,770 - pavrcon - INFO - Removed {'MapId': '3', 'GameMode': '2'} from rotation
+2024-09-25 22:13:23,929 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:17:59,078 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:17:59,132 - pavrcon - INFO - Added modID UGC3970532 to Game.ini
+2024-09-25 22:17:59,238 - pavrcon - INFO - Added new rotation of 3 with gamemode 2
+2024-09-25 22:17:59,283 - pavrcon - INFO - Current Rotation: [{'MapId': '3', 'GameMode': '2'}, {'MapId': '3', 'GameMode': '2'}]
+2024-09-25 22:17:59,336 - pavrcon - INFO - Removed {'MapId': '3', 'GameMode': '2'} from rotation
+2024-09-25 22:17:59,384 - pavrcon - CRITICAL - Error occured while removing an entry from rotation
+2024-09-25 22:17:59,552 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:19:19,269 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:19:19,310 - pavrcon - INFO - Added modID UGC3970532 to Game.ini
+2024-09-25 22:19:19,366 - pavrcon - INFO - Added new rotation of bridge with gamemode TTT
+2024-09-25 22:19:19,422 - pavrcon - INFO - Current Rotation: [{'MapId': '3', 'GameMode': '2'}, {'MapId': 'bridge', 'GameMode': 'TTT'}]
+2024-09-25 22:19:19,478 - pavrcon - INFO - Removed {'MapId': '3', 'GameMode': '2'} from rotation
+2024-09-25 22:19:19,665 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:20:45,952 - __main__ - DEBUG - Create new mod low gravity
+2024-09-25 22:21:24,010 - __main__ - DEBUG - Create new map ttt minecraft
+2024-09-25 22:23:25,057 - __main__ - DEBUG - low gravity
+2024-09-25 22:24:04,130 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:24:04,232 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 22:24:04,287 - pavrcon - INFO - Added new rotation of UGC3249688 with gamemode TTT
+2024-09-25 22:24:04,335 - pavrcon - INFO - Current Rotation: [{'MapId': 'bridge', 'GameMode': 'TTT'}, {'MapId': 'UGC3249688', 'GameMode': 'TTT'}]
+2024-09-25 22:24:04,388 - pavrcon - INFO - Removed {'MapId': 'bridge', 'GameMode': 'TTT'} from rotation
+2024-09-25 22:24:04,558 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:25:32,025 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:25:32,079 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 22:25:32,124 - pavrcon - INFO - Added new rotation of UGC3249688 with gamemode TTT
+2024-09-25 22:25:32,172 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC3249688', 'GameMode': 'TTT'}, {'MapId': 'UGC3249688', 'GameMode': 'TTT'}]
+2024-09-25 22:25:32,342 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:26:26,381 - __main__ - DEBUG - low gravity
+2024-09-25 22:26:33,841 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:26:33,893 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 22:26:33,947 - pavrcon - INFO - Added new rotation of sand with gamemode TTT
+2024-09-25 22:26:33,987 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC3249688', 'GameMode': 'TTT'}, {'MapId': 'UGC3249688', 'GameMode': 'TTT'}, {'MapId': 'sand', 'GameMode': 'TTT'}]
+2024-09-25 22:26:34,051 - pavrcon - INFO - Removed {'MapId': 'UGC3249688', 'GameMode': 'TTT'} from rotation
+2024-09-25 22:26:34,096 - pavrcon - INFO - Removed {'MapId': 'UGC3249688', 'GameMode': 'TTT'} from rotation
+2024-09-25 22:26:34,267 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:29:45,303 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:29:45,359 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3268342', 'Successful': True}
+2024-09-25 22:29:45,359 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 22:29:45,415 - pavrcon - INFO - Added new rotation of sand with gamemode TTT
+2024-09-25 22:29:45,473 - pavrcon - INFO - Current Rotation: [{'MapId': 'sand', 'GameMode': 'TTT'}, {'MapId': 'sand', 'GameMode': 'TTT'}]
+2024-09-25 22:29:45,668 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:31:23,470 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:31:23,540 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3268342', 'Successful': True}
+2024-09-25 22:31:23,540 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 22:31:23,594 - pavrcon - INFO - Added new rotation of sand with gamemode TTT
+2024-09-25 22:31:23,645 - pavrcon - INFO - Current Rotation: [{'MapId': 'sand', 'GameMode': 'TTT'}]
+2024-09-25 22:31:23,834 - pavrcon - INFO - Successfully rotated map
+2024-09-25 22:42:30,342 - __main__ - DEBUG - ttt best custom
+2024-09-25 22:42:48,496 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 22:42:48,550 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3970532', 'Successful': True}
+2024-09-25 22:42:48,550 - pavrcon - INFO - Added modID UGC3970532 to Game.ini
+2024-09-25 22:42:48,607 - pavrcon - INFO - Added new rotation of UGC3249688 with gamemode TTT
+2024-09-25 22:42:48,658 - pavrcon - INFO - Current Rotation: [{'MapId': 'sand', 'GameMode': 'TTT'}, {'MapId': 'UGC3249688', 'GameMode': 'TTT'}]
+2024-09-25 22:42:48,705 - pavrcon - INFO - Removed {'MapId': 'sand', 'GameMode': 'TTT'} from rotation
+2024-09-25 22:42:48,870 - pavrcon - INFO - Successfully rotated map
+2024-09-25 23:09:33,718 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 23:10:39,406 - __main__ - DEBUG - Create new map mcdonalds
+2024-09-25 23:10:39,417 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 23:10:49,601 - __main__ - DEBUG - Create new gamemode ttt
+2024-09-25 23:10:49,609 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 23:11:16,844 - __main__ - DEBUG - Create new mod low gravity
+2024-09-25 23:11:16,853 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 23:11:22,372 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 23:11:30,384 - __main__ - DEBUG - low grav
+2024-09-25 23:11:40,451 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 23:11:40,504 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3268342', 'Successful': True}
+2024-09-25 23:11:40,504 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 23:11:40,561 - pavrcon - INFO - Added new rotation of UGC2819934 with gamemode TTT
+2024-09-25 23:11:40,608 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC1758245796', 'GameMode': 'GUN'}, {'MapId': 'datacenter', 'GameMode': 'SND'}, {'MapId': 'sand', 'GameMode': 'DM'}, {'MapId': 'UGC2819934', 'GameMode': 'TTT'}]
+2024-09-25 23:11:40,672 - pavrcon - INFO - Removed {'MapId': 'UGC1758245796', 'GameMode': 'GUN'} from rotation
+2024-09-25 23:11:40,741 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'SND'} from rotation
+2024-09-25 23:11:40,796 - pavrcon - INFO - Removed {'MapId': 'sand', 'GameMode': 'DM'} from rotation
+2024-09-25 23:11:40,970 - pavrcon - INFO - Successfully rotated map
+2024-09-25 23:13:25,670 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 23:13:25,726 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3268342', 'Successful': True}
+2024-09-25 23:13:25,726 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 23:13:25,794 - pavrcon - INFO - Added new rotation of UGC2819934 with gamemode TTT
+2024-09-25 23:13:25,858 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC2819934', 'GameMode': 'TTT'}, {'MapId': 'UGC2819934', 'GameMode': 'TTT'}]
+2024-09-25 23:13:26,114 - pavrcon - INFO - Successfully rotated map
+2024-09-25 23:34:26,559 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 23:34:26,605 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3268342', 'Successful': True}
+2024-09-25 23:34:26,605 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 23:34:26,650 - pavrcon - INFO - Added new rotation of UGC2819934 with gamemode TTT
+2024-09-25 23:34:26,708 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC1758245796', 'GameMode': 'GUN'}, {'MapId': 'datacenter', 'GameMode': 'SND'}, {'MapId': 'sand', 'GameMode': 'DM'}, {'MapId': 'UGC2819934', 'GameMode': 'TTT'}]
+2024-09-25 23:34:26,748 - pavrcon - INFO - Removed {'MapId': 'UGC1758245796', 'GameMode': 'GUN'} from rotation
+2024-09-25 23:34:26,793 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'SND'} from rotation
+2024-09-25 23:34:26,841 - pavrcon - INFO - Removed {'MapId': 'sand', 'GameMode': 'DM'} from rotation
+2024-09-25 23:34:27,016 - pavrcon - INFO - Successfully rotated map
+2024-09-25 23:36:21,432 - __main__ - DEBUG - Create new map sand
+2024-09-25 23:36:25,786 - __main__ - DEBUG - Create new gamemode GUN
+2024-09-25 23:36:53,125 - __main__ - DEBUG - non
+2024-09-25 23:36:58,562 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 23:36:58,620 - pavrcon - INFO - Added new rotation of sand with gamemode GUN
+2024-09-25 23:36:58,669 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC2819934', 'GameMode': 'TTT'}, {'MapId': 'sand', 'GameMode': 'GUN'}]
+2024-09-25 23:36:58,718 - pavrcon - INFO - Removed {'MapId': 'UGC2819934', 'GameMode': 'TTT'} from rotation
+2024-09-25 23:36:58,886 - pavrcon - INFO - Successfully rotated map
+2024-09-25 23:37:28,478 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 23:37:28,521 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3268342', 'Successful': True}
+2024-09-25 23:37:28,521 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 23:37:28,579 - pavrcon - INFO - Added new rotation of UGC2819934 with gamemode TTT
+2024-09-25 23:37:28,622 - pavrcon - INFO - Current Rotation: [{'MapId': 'sand', 'GameMode': 'GUN'}, {'MapId': 'UGC2819934', 'GameMode': 'TTT'}]
+2024-09-25 23:37:28,671 - pavrcon - INFO - Removed {'MapId': 'sand', 'GameMode': 'GUN'} from rotation
+2024-09-25 23:37:28,845 - pavrcon - INFO - Successfully rotated map
+2024-09-25 23:41:02,515 - __main__ - DEBUG - Create new map datacenter
+2024-09-25 23:41:25,684 - __main__ - DEBUG - low grav
+2024-09-25 23:41:35,506 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 23:41:35,550 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3268342', 'Successful': True}
+2024-09-25 23:41:35,550 - pavrcon - INFO - Added modID UGC3268342 to Game.ini
+2024-09-25 23:41:35,597 - pavrcon - INFO - Added new rotation of datacenter with gamemode TTT
+2024-09-25 23:41:35,642 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC2819934', 'GameMode': 'TTT'}, {'MapId': 'datacenter', 'GameMode': 'TTT'}]
+2024-09-25 23:41:35,685 - pavrcon - INFO - Removed {'MapId': 'UGC2819934', 'GameMode': 'TTT'} from rotation
+2024-09-25 23:41:35,857 - pavrcon - INFO - Successfully rotated map
+2024-09-25 23:42:25,450 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-25 23:42:25,492 - pavrcon - INFO - Added new rotation of sand with gamemode GUN
+2024-09-25 23:42:25,536 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'TTT'}, {'MapId': 'sand', 'GameMode': 'GUN'}]
+2024-09-25 23:42:25,582 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'TTT'} from rotation
+2024-09-25 23:42:25,761 - pavrcon - INFO - Successfully rotated map
