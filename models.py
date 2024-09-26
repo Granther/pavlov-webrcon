@@ -66,5 +66,11 @@ class Profile(db.Model):
     gamemode = db.relationship('GameMode', backref='profile', lazy=True, uselist=False)
     map = db.relationship('Map', backref='profile', lazy=True, uselist=False)
 
+    def __str__(self):
+        return self.name
 
-
+# class Rotation(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
+#     profiles = db.relationship('Profile', backref='rotation', lazy=True)

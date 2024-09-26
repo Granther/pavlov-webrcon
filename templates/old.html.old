@@ -1,0 +1,33 @@
+<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen"></body>
+    <div class="relative container mx-auto px-4 py-8 flex-grow text-white">
+        <div class="grid grid-cols-1 gap-6">
+            <h1 class="text-xl">New Map</h1>
+            <form method="POST" action="{{ url_for('new_map') }}">
+                {{ map_form.hidden_tag() }}
+                <div>{{ map_form.name.label }} {{ map_form.name }}</div>
+                <div>{{ map_form.id.label }} {{ map_form.id }}</div>
+                <div>{{ map_form.submit() }}</div>
+            </form>
+            <h1 class="text-xl">New Gamemode</h1>
+            <form method="POST" action="{{ url_for('new_gamemode') }}">
+                {{ gamemode_form.hidden_tag() }}
+                <div>{{ gamemode_form.name.label }} {{ gamemode_form.name }}</div>
+                <div>{{ gamemode_form.id.label }} {{ gamemode_form.id }}</div>
+                <div>{{ gamemode_form.submit() }}</div>
+            </form>
+            <h1 class="text-xl">New Mod</h1>
+            <form method="POST" action="{{ url_for('new_mod') }}">
+                {{ mod_form.hidden_tag() }}
+                <div>{{ mod_form.name.label }} {{ mod_form.name }}</div>
+                <div>{{ mod_form.id.label }} {{ mod_form.id }}</div>
+                <div>{{ mod_form.submit() }}</div>
+            </form>
+            <a href="{{url_for('new_modpack')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">New Modpack</a>
+            <a href="{{url_for('new_profile')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">New Profile</a>
+            <h1 class="text-xl">Your Modpacks</h1>
+            {% for profile in profiles %}
+                <a href="{{url_for('profile', id=profile.id)}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">{{ profile.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</body>

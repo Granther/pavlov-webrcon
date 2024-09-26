@@ -131,10 +131,13 @@ class PavRCON:
             server_info = self._send_rcon_command(rcon_socket, "RotateMap")
             if bool(server_info['Successful']):
                 self.logger.info("Successfully rotated map")
+                rcon_socket.close()
+                return True
             else:
                 self.logger.fatal("Error occured while rotating map")
+                rcon_socket.close()
+                return False
             
-            rcon_socket.close()
 
 _pavrcon = PavRCON()
 

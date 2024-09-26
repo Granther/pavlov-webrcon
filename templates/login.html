@@ -1,16 +1,35 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}Login Dog{% endblock %}
+{% block list %}
+<li>
+    <a href="{{url_for('register')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</a>
+</li>
+{% endblock %}
 
-{% block list %}{% endblock %}
+
+{% block title %}Login{% endblock %}
 
 {% block content %}
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        <div>{{ form.username.label }} {{ form.username }}</div>
-        <div>{{ form.password.label }} {{ form.password }}</div>
-        <div>{{ form.submit() }}</div>
-    </form>
-</body>
+<div class="flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h2 class="text-center text-white text-2xl font-semibold mb-6">Login</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            {{ form.hidden_tag() }}
+            <div class="mb-4 text-white">
+                {{ form.username.label }}
+                {{ form.username }}
+                {% for error in form.username.errors %}
+                    <p class="text-red-500 text-xs mt-2">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="mb-4 text-white">
+                {{ form.password.label }}
+                {{ form.password }}
+            </div>
+            <div class="flex items-center justify-between mb-6">
+                {{ form.submit() }}
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

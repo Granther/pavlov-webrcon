@@ -207,3 +207,77 @@
 2024-09-25 23:42:25,536 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'TTT'}, {'MapId': 'sand', 'GameMode': 'GUN'}]
 2024-09-25 23:42:25,582 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'TTT'} from rotation
 2024-09-25 23:42:25,761 - pavrcon - INFO - Successfully rotated map
+2024-09-26 01:06:12,878 - utils - INFO - Admin already exists
+2024-09-26 01:09:33,101 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:09:59,808 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:10:11,970 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:10:15,542 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:10:57,468 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:11:00,066 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:11:50,387 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:12:03,036 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:12:06,108 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:13:18,979 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:14:35,818 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:14:38,168 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:22:01,508 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:22:05,989 - utils - DEBUG - User canno access
+2024-09-26 01:22:05,992 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:22:23,643 - utils - DEBUG - User canno access
+2024-09-26 01:22:23,646 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:22:26,115 - utils - DEBUG - User canno access
+2024-09-26 01:22:26,584 - pavrcon - INFO - Successfully rotated map
+2024-09-26 01:22:26,584 - __main__ - CRITICAL - Failed to rotate server
+2024-09-26 01:22:26,590 - utils - DEBUG - User canno access
+2024-09-26 01:22:26,592 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:23:16,255 - utils - DEBUG - User canno access
+2024-09-26 01:23:16,256 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:23:17,753 - utils - DEBUG - User canno access
+2024-09-26 01:23:17,963 - pavrcon - INFO - Successfully rotated map
+2024-09-26 01:23:17,963 - __main__ - CRITICAL - Failed to rotate server
+2024-09-26 01:23:17,968 - utils - DEBUG - User canno access
+2024-09-26 01:23:17,970 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:25:36,140 - utils - DEBUG - User canno access
+2024-09-26 01:25:39,764 - utils - DEBUG - User canno access
+2024-09-26 01:25:39,767 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:25:41,737 - utils - DEBUG - User canno access
+2024-09-26 01:25:41,903 - pavrcon - INFO - Successfully rotated map
+2024-09-26 01:25:41,910 - utils - DEBUG - User canno access
+2024-09-26 01:25:41,911 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:26:20,785 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:27:12,601 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:32:10,932 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:32:29,519 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:32:31,234 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:32:34,523 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:48:03,600 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:48:05,845 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:48:12,406 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:49:09,090 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:49:11,405 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:49:50,896 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:49:57,949 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:57:49,564 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:57:54,191 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 01:58:56,302 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:00:35,004 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:02:25,620 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:08:46,507 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:09:45,522 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:09:53,781 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:10:09,855 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:10:35,732 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:11:08,352 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:11:26,124 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:11:40,454 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:11:57,582 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:12:33,626 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:12:48,113 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:13:00,442 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:13:18,712 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:13:34,470 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:13:48,369 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:15:46,291 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:16:29,978 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:17:36,228 - utils - INFO - Error occured while getting profile, could be [] IDK
+2024-09-26 02:18:57,715 - utils - INFO - Error occured while getting profile, could be [] IDK
