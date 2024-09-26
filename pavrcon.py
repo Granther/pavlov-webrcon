@@ -69,7 +69,7 @@ class PavRCON:
             print(f"Error sending command: {e}")
             return None
         
-    def set_profile(self, map_id: str, gamemode_id: str, mods: list):
+    def set_profile(self, map_id: str, gamemode_id: str, mods: list) -> bool:
         """Used to get Game.ini ready for the profile of the next map"""
 
         rcon_socket = self._authenticate_rcon()
@@ -104,6 +104,11 @@ class PavRCON:
             
             rcon_socket.close()
 
+            return True
+        
+        else:
+            return False
+
     def rotate_map(self):
         """Rotates to the next map, usually used following set_profile"""
 
@@ -117,6 +122,14 @@ class PavRCON:
                 self.logger.fatal("Error occured while rotating map")
             
             rcon_socket.close()
+
+_pavrcon = PavRCON()
+
+def set_profile(map_id: str, gamemode_id: str, mods: list) -> bool:
+    return _pavrcon.set_profile(map_id, gamemode_id, mods)
+
+def rotate_map():
+    return _pavrcon.rotate_map()
 
 if __name__ == "__main__":
     #set_profile(map_id="datacenter", gamemode_id="TTT", mods=["UGC3945345"])

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Login Dog{% endblock %}
+{% block title %}New Profile{% endblock %}
 
 {% block list %}{% endblock %}
 
@@ -12,8 +12,16 @@
         <div>
             {{ form.name.label }}<br>
             {{ form.name }}<br>
-            {{ form.mods.label }}<br>
-            {{ form.mods }}<bR>
+
+            {{ form.map.label }}<br>
+            {{ form.map }}<br>
+
+            {{ form.gamemode.label }}<br>
+            {{ form.gamemode }}<br>
+
+            {{ form.modpack.label }}<br>
+            {{ form.modpack }}<br>
+
             {{ form.submit() }}
         </div>
     </form>

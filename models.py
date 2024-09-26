@@ -36,11 +36,15 @@ class Mod(db.Model):
     name = db.Column(db.String, nullable=False)
     UGCId = db.Column(db.String, nullable=False)
 
+    # This is what happens when these are displayed
+    def __str__(self):
+        return self.name
+
 class ModPack(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
+    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'), nullable=True)
     name = db.Column(db.String, nullable=False)
     mods = db.relationship('Mod', backref='mod_pack', lazy=True)
 
@@ -49,9 +53,9 @@ class Profile(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
     name = db.Column(db.String, nullable=False)
-    mod_packs = db.relationship('ModPack', backref='profile', lazy=True)
-    gamemode = db.relationship('GameMode', backref='profile', lazy=True)
-    map = db.relationship('Map', backref='profile', lazy=True)
+    modpack = db.relationship('ModPack', backref='profile', lazy=True, uselist=False)
+    gamemode = db.relationship('GameMode', backref='profile', lazy=True, uselist=False)
+    map = db.relationship('Map', backref='profile', lazy=True, uselist=False)
 
 
 
