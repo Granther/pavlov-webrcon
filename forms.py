@@ -20,9 +20,9 @@ class ModPackForm(FlaskForm):
 
 class NewProfileForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off"})
-    map = QuerySelectField("Maps")
-    gamemode = QuerySelectField("Gamemodes")
-    modpack = QuerySelectField("ModPacks")
+    map = QuerySelectField("Map", render_kw={"class": "bg-gray-900 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
+    gamemode = QuerySelectField("Gamemode", render_kw={"class": "bg-gray-900 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
+    modpack = QuerySelectField("ModPack", render_kw={"class": "bg-gray-900 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
     submit = SubmitField('Create Profile', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-black py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 
 class LoginForm(FlaskForm):

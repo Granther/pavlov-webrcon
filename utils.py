@@ -52,44 +52,82 @@ def admin_authorized(f):
 
     return decorated_function
 
-def create_component(form_type: str, user_id: int, name: str, ugcid: str) -> bool:
+def create_component(form_type: str, name: str, ugcid: str) -> bool:
     def string_to_type(class_name):
         return globals()[class_name]
     
     try:
-        new_map = string_to_type(form_type)(user_id=user_id, name=name, UGCId=ugcid)
+        new_map = string_to_type(form_type)(name=name, UGCId=ugcid)
         db.session.add(new_map)
         db.session.commit()
         return True
     except Exception as e:
+        logger.error(f"Error occured while creating component: {e}")
         return False
     
-def verify_compadible(ugcid: str):
+def verify_UGC(ugcid: str):
+    if ugcid[:3] != 'UGC':
+        print(ugcid[:2])
+        return False
+    
+    return ugcid[3:]
+    
+def verify_compadible(ugcid: str, modtype: str):
     headers = {
     'Accept': 'application/json'
     }
     url = "https://u-24475661.modapi.io/v1/games/3959/mods/"
 
     # Remove 'UGC' from ID
-    ugcid = ugcid[3:]
+    ugcid = verify_UGC(ugcid)
+    if not ugcid:
+        return False, "ID must include 'UGC' at the beginning, boomer, like so, UGC4206969"
 
     try:
         response = requests.get(f'{url}{ugcid}', 
                                 params={'api_key': os.getenv('MODIO_API_KEY')}, 
                                 headers = headers)
-        
-        jsonResponse = json.loads(response.content)
-        platforms = jsonResponse.get("platforms", False)
+        json_response = json.loads(response.content)
 
+        metadata_blob = json.loads(json_response.get("metadata_blob"))
+        json_modtype = dict(metadata_blob).get('ModType')
+
+        # if json_modtype.lower() != modtype:
+        #     return False, f"ID entered is not a {modtype}, but actually a {json_modtype}"
+        
+        platforms = json_response.get("platforms", False)
         for platform in platforms:
             if 'linux' in platform.values():
-                return True
+                return True, None
         
-        return False
+        return False, f"This {modtype} is not compadible with the server (Linux)"
 
     except Exception as e:
         logger.error(f"Error occured when checking UGC compadibility: {e}")
-        return False
+        return False, f"Unknown error occured while checking mod compat, please verify the ID and format"
+
+def get_mod_url(ugcid: str):
+    headers = {
+    'Accept': 'application/json'
+    }
+    url = f"https://u-24475661.modapi.io/v1/games/3959/mods/"
+
+    ugcid = verify_UGC(ugcid)
+    if not ugcid:
+        logger.error("Not able to verify integrity of UGCID while getting URL")
+        return None
+
+    try:
+        response = requests.get(f'{url}{ugcid}', 
+                                params={'api_key': os.getenv('MODIO_API_KEY')}, 
+                                headers = headers)
+        json_response = json.loads(response.content)
+
+        return json_response.get('profile_url')
+
+    except Exception as e:
+        logger.error(f"Error occured while getting mod URL: {e}")
+        return None
 
 def create_profile_select_form():
     form = SelectProfileForm()
@@ -98,4 +136,4 @@ def create_profile_select_form():
     return form
 
 if __name__ == "__main__":
-    pass
+    get_mod_url("2803451")

@@ -4,9 +4,6 @@
 
 {% block list %}
 <li>
-    <a href="{{url_for('logout')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
-</li>
-<li>
     <a href="{{url_for('index')}}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
 </li>
 <li>
@@ -17,14 +14,15 @@
 {% block content %}
 <div class="flex items-center justify-center min-h-screen">
     <div class="bg-gray-800 rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h2 class="text-center text-white text-2xl font-semibold mb-6">Login</h2>
+        <h2 class="text-center text-white text-2xl font-semibold mb-6">Create Profile</h2>
+        <h2 class="text-center text-white text-md mb-3">A profile is a combination of a Map, Gamemode & Modpack that can be added to rotation and played multiple times</h2>
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <div class="mb-4 text-white">
                 {{ form.name.label }}
                 {{ form.name }}
             </div>
-            <div class="mb-4 text-black">
+            <div class="mb-4 text-white">
                 {{ form.map.label }}
                 {{ form.map }}
             </div>
@@ -43,3 +41,4 @@
     </div>
 </div>
 {% endblock %}
+

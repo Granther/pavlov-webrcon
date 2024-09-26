@@ -10,7 +10,7 @@ from models import User, Map, Mod, GameMode, ModPack, Profile
 from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, ModPackForm, NewProfileForm, RotateButton, SelectProfileForm
 from logger import create_logger
 from pavrcon import set_profile, rotate_map
-from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form
+from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form, get_mod_url
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -37,7 +37,6 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 @app.route("/", methods=['POST', 'GET'])
-@login_required
 def index():
     map_form = NewMapForm()
     gamemode_form = NewGamemodeForm()
@@ -47,7 +46,7 @@ def index():
     maps = Map.query.all()
     gamemodes = GameMode.query.all()
     modpacks = ModPack.query.all()
-    profiles = get_profiles()
+    profiles = Profile.query.all()
 
     return render_template("home.html", map_form=map_form, mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks,
                            gamemode_form=gamemode_form, mod_form=mod_form, profiles=profiles)
@@ -58,16 +57,16 @@ def init_admin():
     return redirect(url_for('index'))
 
 @app.route("/new_map", methods=['POST', 'GET'])
-@login_required
 def new_map():
     map_form = NewMapForm()
 
     if map_form.validate_on_submit():
-        if not verify_compadible(map_form.id.data):
-            flash("This Map is not compadible with the server (Linux)")
+        result, msg = verify_compadible(map_form.id.data, modtype='map') 
+        if not result:
+            flash(msg)
             return redirect(url_for('index'))
     
-        res = create_component(form_type="Map", user_id=current_user.id, name=map_form.name.data, ugcid=map_form.id.data)
+        res = create_component(form_type="Map", name=map_form.name.data, ugcid=map_form.id.data)
         if not res:
             flash("Error creating new map entry")
             return redirect(url_for('index'))
@@ -79,16 +78,16 @@ def new_map():
     return redirect(url_for('index'))
 
 @app.route("/new_gamemode", methods=['POST', 'GET'])
-@login_required
 def new_gamemode():
     gamemode_form = NewGamemodeForm()
 
     if gamemode_form.validate_on_submit():
-        if not verify_compadible(gamemode_form.id.data):
-            flash("This Gamemode is not compadible with the server (Linux)")
+        result, msg = verify_compadible(gamemode_form.id.data, modtype='gamemode') 
+        if not result:
+            flash(msg)
             return redirect(url_for('index'))
         
-        res = create_component(form_type="GameMode", user_id=current_user.id, name=gamemode_form.name.data, ugcid=gamemode_form.id.data)
+        res = create_component(form_type="GameMode", name=gamemode_form.name.data, ugcid=gamemode_form.id.data)
         if not res:
             flash("Error creating new gamemode entry")
             return redirect(url_for('index'))
@@ -100,16 +99,16 @@ def new_gamemode():
     return redirect(url_for('index'))
 
 @app.route("/new_mod", methods=['POST', 'GET'])
-@login_required
 def new_mod():
     mod_form = NewModForm()
 
     if mod_form.validate_on_submit():
-        if not verify_compadible(mod_form.id.data):
-            flash("This Mod is not compadible with the server (Linux)")
+        result, msg = verify_compadible(mod_form.id.data, modtype='mod') 
+        if not result:
+            flash(msg)
             return redirect(url_for('index'))
 
-        res = create_component(form_type="Mod", user_id=current_user.id, name=mod_form.name.data, ugcid=mod_form.id.data)
+        res = create_component(form_type="Mod", name=mod_form.name.data, ugcid=mod_form.id.data)
         if not res:
             flash("Error creating new mod entry")
             return redirect(url_for('index'))
@@ -121,14 +120,13 @@ def new_mod():
     return redirect(url_for('index'))
     
 @app.route("/new_modpack", methods=['GET', 'POST'])
-@login_required
 def new_modpack():
     form = ModPackForm()
     form.mods.query = Mod.query.all()
 
     if form.validate_on_submit():
         selected_mods = form.mods.data 
-        mod_pack = ModPack(user_id=current_user.id, name=form.name.data)
+        mod_pack = ModPack(name=form.name.data)
         mod_pack.mods.clear()
         mod_pack.mods.extend(selected_mods)
         db.session.add(mod_pack)
@@ -139,7 +137,6 @@ def new_modpack():
     return render_template("new_modpack.html", form=form)
 
 @app.route("/new_profile", methods=['GET', 'POST'])
-@login_required
 def new_profile():
     form = NewProfileForm()
     form.modpack.query = ModPack.query.all()
@@ -147,7 +144,7 @@ def new_profile():
     form.gamemode.query = GameMode.query.all()
 
     if form.validate_on_submit():
-        new_profile = Profile(user_id=current_user.id, name=form.name.data)
+        new_profile = Profile(name=form.name.data)
         
         logger.debug(form.modpack.data)
 
@@ -174,6 +171,10 @@ def login():
             flash('Login Unsuccessful. Please check email and password', 'danger')
 
     return render_template('login.html', title='Login', form=form)
+
+@app.route("/boomer")
+def boomer():
+    return render_template("boomer.html")
 
 @app.route("/register", methods=['GET', 'POST'])
 @admin_authorized
@@ -207,7 +208,7 @@ def error():
 def admin():
     set_profile_form = create_profile_select_form()
     rotate_form = RotateButton()
-    profiles = get_profiles()
+    profiles = Profile.query.all()
 
     return render_template("admin.html", rotate_form=rotate_form, set_profile_form=set_profile_form, profiles=profiles)
 
@@ -261,40 +262,37 @@ def joke():
     return render_template("joke.html")
 
 @app.route("/mod/<int:id>", methods=['GET'])
-@login_required
 def mod(id):
     mod = Mod.query.filter_by(id=id).first()
+    modio_url = get_mod_url(mod.UGCId)
 
-    return render_template("component.html", component=mod, type="Mod")
+    return render_template("component.html", component=mod, type="Mod", modio_url=modio_url)
 
 @app.route("/gamemode/<int:id>", methods=['GET'])
-@login_required
 def gamemode(id):
     gamemode = GameMode.query.filter_by(id=id).first()
+    modio_url = get_mod_url(gamemode.UGCId)
 
-    return render_template("component.html", component=gamemode, type="Gamemode")
+    return render_template("component.html", component=gamemode, type="Gamemode", modio_url=modio_url)
 
 @app.route("/map/<int:id>", methods=['GET'])
-@login_required
 def map(id):
     map = Map.query.filter_by(id=id).first()
+    modio_url = get_mod_url(map.UGCId)
 
-    return render_template("component.html", component=map, type="Map")
+    return render_template("component.html", component=map, type="Map", modio_url=modio_url)
 
 @app.route("/modpack/<int:id>", methods=['GET'])
-@login_required
 def modpack(id):
     modpack = ModPack.query.filter_by(id=id).first()
 
     return render_template("modpack.html", modpack=modpack)
 
 @app.route("/profile/<int:id>", methods=['GET'])
-@login_required
 def profile(id):
     profile = Profile.query.filter_by(id=id).first()
-    username = User.query.get(profile.user_id)
 
-    return render_template("profile.html", profile=profile, username=username)
+    return render_template("profile.html", profile=profile)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
