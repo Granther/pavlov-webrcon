@@ -1,5 +1,7 @@
 import os
 from functools import wraps
+import requests
+import json
 
 from flask_login import current_user
 from flask import redirect, url_for, flash
@@ -7,6 +9,7 @@ from flask import redirect, url_for, flash
 from logger import create_logger
 from models import User
 from db_factory import db
+from models import User, Map, Mod, GameMode, ModPack, Profile
 
 logger = create_logger(__name__)
 
@@ -59,3 +62,33 @@ def create_component(form_type: str, user_id: int, name: str, ugcid: str) -> boo
         return True
     except Exception as e:
         return False
+    
+def verify_compadible(ugcid: str):
+    headers = {
+    'Accept': 'application/json'
+    }
+    url = "https://u-24475661.modapi.io/v1/games/3959/mods/"
+
+    # Remove 'UGC' from ID
+    ugcid = ugcid[3:]
+
+    try:
+        response = requests.get(f'{url}{ugcid}', 
+                                params={'api_key': os.getenv('MODIO_API_KEY')}, 
+                                headers = headers)
+        
+        jsonResponse = json.loads(response.content)
+        platforms = jsonResponse.get("platforms", False)
+
+        for platform in platforms:
+            if 'linux' in platform.values():
+                return True
+        
+        return False
+
+    except Exception as e:
+        logger.error(f"Error occured when checking UGC compadibility: {e}")
+        return False
+
+if __name__ == "__main__":
+    pass

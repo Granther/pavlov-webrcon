@@ -12,9 +12,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="flex flex-row gap-x-6 items-center justify-center min-h-screen bg-gray-900">
+<div class="flex flex-row gap-x-6 items-start justify-center min-h-screen bg-gray-900 p-8">
     <div class="bg-gray-800 shadow-lg p-8 w-full max-w-lg rounded-lg">
-        <h2 class="text-center text-2xl font-semibold mb-6 text-white">Custom Multi-Form Page</h2>
+        <h2 class="text-center text-2xl font-semibold mb-6 text-white">Register Maps, Mods & Gamemodes</h2>
 
         <div class="text-area mb-6 p-4 bg-blue-100 rounded-lg text-blue-700">
             <p class="text-center">Only fill out ONE AT A TIME!</p>
@@ -29,6 +29,7 @@
             </div>
             {{ map_form.submit() }}
         </form>
+
         <form method="POST" action="{{ url_for('new_gamemode') }}" class="text-white">
             <h1 class="text-xl text-white mt-4 text-center">Add Gamemode</h1>
             {{ gamemode_form.hidden_tag() }}
@@ -38,6 +39,7 @@
             </div>
             {{ gamemode_form.submit() }}
         </form>
+
         <form method="POST" action="{{ url_for('new_mod') }}" class="text-white">
             <h1 class="text-xl text-white mt-4 text-center">Add Mod</h1>
             {{ mod_form.hidden_tag() }}
@@ -48,40 +50,77 @@
             {{ mod_form.submit() }}
         </form>
     </div>
-    <div class="bg-gray-800 shadow-lg p-8 w-full max-w-lg rounded-lg">
-        <h2 class="text-center text-2xl font-semibold mb-6 text-white">Custom Multi-Form Page</h2>
+</div>
 
-        <div class="text-area mb-6 p-4 bg-blue-100 rounded-lg text-blue-700">
-            <p class="text-center">Only fill out ONE AT A TIME!</p>
+<div class="flex flex-row gap-x-6 items-start justify-center bg-gray-900">
+    <a href="{{url_for('new_modpack')}}" class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300">New Modpack</a>
+    <a href="{{url_for('new_profile')}}" class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300">New Profile</a>
+</div>
+
+<div class="flex flex-row gap-x-6 items-start justify-center min-h-screen bg-gray-900 p-8">
+    <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
+        <div class="h-full overflow-y-auto p-4 rounded-lg">
+            <h1 class="text-xl text-white mt-4 text-center">Mods</h1>
+            <ul>
+                {% for mod in mods %}
+                <li class="py-2 border-b border-gray-600 text-white">
+                    <a href="{{url_for('mod', id=mod.id)}}">{{ mod.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
+    </div>
 
-        <form method="POST" action="{{ url_for('new_map') }}" class="text-white">
-            <h1 class="text-xl text-white mt-4 text-center">Add Map</h1>
-            {{ map_form.hidden_tag() }}
-            <div class="mb-4">
-                {{ map_form.name.label }} {{ map_form.name }}
-                {{ map_form.id.label }} {{ map_form.id }}
-            </div>
-            {{ map_form.submit() }}
-        </form>
-        <form method="POST" action="{{ url_for('new_gamemode') }}" class="text-white">
-            <h1 class="text-xl text-white mt-4 text-center">Add Gamemode</h1>
-            {{ gamemode_form.hidden_tag() }}
-            <div class="mb-4">
-                {{ gamemode_form.name.label }} {{ gamemode_form.name }}
-                {{ gamemode_form.id.label }} {{ gamemode_form.id }}
-            </div>
-            {{ gamemode_form.submit() }}
-        </form>
-        <form method="POST" action="{{ url_for('new_mod') }}" class="text-white">
-            <h1 class="text-xl text-white mt-4 text-center">Add Mod</h1>
-            {{ mod_form.hidden_tag() }}
-            <div class="mb-4">
-                {{ mod_form.name.label }} {{ mod_form.name }}
-                {{ mod_form.id.label }} {{ mod_form.id }}
-            </div>
-            {{ mod_form.submit() }}
-        </form>
+    <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
+        <div class="h-full overflow-y-auto p-4 rounded-lg">
+            <h1 class="text-xl text-white mt-4 text-center">Gamemods</h1>
+            <ul>
+                {% for gamemode in gamemodes %}
+                <li>
+                    <a href="{{url_for('gamemode', id=gamemode.id)}}" class="py-2 border-b border-gray-600 text-white">{{ gamemode.name }}</a>
+                </li>                
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
+        <div class="h-full overflow-y-auto p-4 rounded-lg">
+            <h1 class="text-xl text-white mt-4 text-center">Maps</h1>
+            <ul>
+                {% for map in maps %}
+                <li>
+                    <a href="{{url_for('map', id=map.id)}}" class="py-2 border-b border-gray-600 text-white">{{ map.name }}</a>
+                </li>                
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
+        <div class="h-full overflow-y-auto p-4 rounded-lg">
+            <h1 class="text-xl text-white mt-4 text-center">Modpacks</h1>
+            <ul>
+                {% for modpack in modpacks %}
+                <li>
+                    <a href="{{url_for('modpack', id=modpack.id)}}" class="py-2 border-b border-gray-600 text-white">{{ modpack.name }}</a>
+                </li>                
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
+        <div class="h-full overflow-y-auto p-4 rounded-lg">
+            <h1 class="text-xl text-white mt-4 text-center">Profiles</h1>
+            <ul>
+                {% for profile in profiles %}
+                <li class="py-2 border-b border-gray-600 text-white">
+                    <a href="{{url_for('profile', id=profile.id)}}">{{ profile.name }}</a>
+                </li>                
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 {% endblock %}
