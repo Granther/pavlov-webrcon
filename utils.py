@@ -10,6 +10,7 @@ from logger import create_logger
 from models import User
 from db_factory import db
 from models import User, Map, Mod, GameMode, ModPack, Profile
+from forms import SelectProfileForm
 
 logger = create_logger(__name__)
 
@@ -89,6 +90,12 @@ def verify_compadible(ugcid: str):
     except Exception as e:
         logger.error(f"Error occured when checking UGC compadibility: {e}")
         return False
+
+def create_profile_select_form():
+    form = SelectProfileForm()
+    profiles = Profile.query.all()
+    form.profiles.choices = [(profile.id, profile.name) for profile in profiles]
+    return form
 
 if __name__ == "__main__":
     pass

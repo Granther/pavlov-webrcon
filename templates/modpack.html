@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Profile Viewer{% endblock %}
+{% block title %}Modpack Viewer{% endblock %}
 
 {% block list %}
 <li>
@@ -19,29 +19,16 @@
     <div class="bg-gray-800 rounded-lg shadow-lg p-8 w-full max-w-md">
         <h2 class="text-center text-white text-2xl font-semibold mb-6">View {{ type }} Details</h2>
         <div class="mb-4 text-white">
-            <p>Profile Name: <strong>{{ profile.name }}</strong></p>
-
-            <p>Profile Modpack:
+            <p>Modpack Name: <strong>{{ modpack.name }}</strong></p>
+            <p>Modpack Mods: 
                 <strong>
-                    <a href="{{url_for('modpack', id=profile.modpack.id)}}" class="py-2 text-white">{{ profile.modpack.name }}</a>
-                </strong>
-            </p>
-
-            <p>Profile Map:                 
-                <strong>
-                    <a href="{{url_for('map', id=profile.map.id)}}" class="py-2 text-white">{{ profile.gamemode }}</a>
-                </strong>
-            </p>
-
-            <p>Profile Gamemode: 
-                <strong>
-                    <a href="{{url_for('gamemode', id=profile.gamemode.id)}}" class="py-2 text-white">{{ profile.gamemode }}</a>
-                </strong>
-            </p>
-
-            <p>Created By: 
-                <strong>
-                    <a href="" class="py-2 text-white">{{ username.username }}</a>
+                    <ul>
+                    {% for mod in modpack.mods %}
+                    <li>
+                        <a href="{{url_for('mod', id=mod.id)}}" class="py-2 border-b border-gray-600 text-white">{{ mod.name }}</a>
+                    </li>   
+                    {% endfor %}
+                    </ul>
                 </strong>
             </p>
         </div>

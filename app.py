@@ -7,10 +7,10 @@ from flask_login import LoginManager, login_user, current_user, logout_user, log
 
 from db_factory import db
 from models import User, Map, Mod, GameMode, ModPack, Profile
-from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, NewModpackForm, ModPackForm, NewProfileForm, RotateButton, QuerySelectMultipleFieldWithChecks
+from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, ModPackForm, NewProfileForm, RotateButton, SelectProfileForm
 from logger import create_logger
 from pavrcon import set_profile, rotate_map
-from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible
+from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -205,7 +205,7 @@ def error():
 @app.route("/admin", methods=['POST', 'GET'])
 @admin_authorized
 def admin():
-    set_profile_form = AddProfileRotationForm()
+    set_profile_form = create_profile_select_form()
     rotate_form = RotateButton()
     profiles = get_profiles()
 
@@ -214,7 +214,7 @@ def admin():
 @app.route("/admin_set_profile", methods=['POST', 'GET'])
 @admin_authorized
 def admin_set_profile():
-    form = AddProfileRotationForm()
+    form = create_profile_select_form()
 
     if form.validate_on_submit():
         try:
@@ -286,14 +286,15 @@ def map(id):
 def modpack(id):
     modpack = ModPack.query.filter_by(id=id).first()
 
-    return render_template("component.html", component=modpack, type="ModPack")
+    return render_template("modpack.html", modpack=modpack)
 
 @app.route("/profile/<int:id>", methods=['GET'])
 @login_required
 def profile(id):
     profile = Profile.query.filter_by(id=id).first()
+    username = User.query.get(profile.user_id)
 
-    return render_template("profile.html", profile=profile)
+    return render_template("profile.html", profile=profile, username=username)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
