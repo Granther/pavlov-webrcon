@@ -8,7 +8,7 @@ from logger import create_logger
 class PavRCON:
     def __init__(self):
         self.SERVER_IP = os.environ.get("SERVER_IP")
-        self.SERVER_PORT = int(os.environ.get("SERVER_PORT"))
+        self.SERVER_PORT = os.environ.get("SERVER_PORT")
         self.RCON_PASSWORD = os.environ.get("RCON_PASSWORD")
         self.logger = create_logger(__name__)
 

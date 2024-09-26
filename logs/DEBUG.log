@@ -20,3 +20,31 @@
 2024-09-25 21:05:02,071 - __main__ - DEBUG - Create new gamemode 1
 2024-09-25 21:05:04,384 - __main__ - DEBUG - Create new mod 1
 2024-09-25 21:05:12,527 - __main__ - DEBUG - <ModPack 1>
+2024-09-25 21:19:36,368 - __main__ - DEBUG - profile map id 1
+2024-09-25 21:20:50,707 - __main__ - DEBUG - profile map id 1
+2024-09-25 21:20:50,709 - __main__ - DEBUG - None
+2024-09-25 21:21:53,418 - __main__ - DEBUG - profile map id 1
+2024-09-25 21:21:53,419 - __main__ - DEBUG - None
+2024-09-25 21:22:10,923 - __main__ - DEBUG - profile map id 1
+2024-09-25 21:22:10,925 - __main__ - DEBUG - None
+2024-09-25 21:23:02,209 - __main__ - DEBUG - <ModPack 1>
+2024-09-25 21:27:15,450 - __main__ - DEBUG - profile map id 1
+2024-09-25 21:27:15,451 - __main__ - DEBUG - None
+2024-09-25 21:27:37,737 - __main__ - DEBUG - profile map id 1
+2024-09-25 21:27:37,738 - __main__ - DEBUG - None
+2024-09-25 21:28:02,130 - __main__ - DEBUG - profile map id 1
+2024-09-25 21:29:12,632 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 21:29:39,389 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 21:29:44,772 - __main__ - DEBUG - Create new map 1
+2024-09-25 21:29:44,778 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 21:29:46,931 - __main__ - DEBUG - Create new gamemode 1
+2024-09-25 21:29:46,939 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 21:29:48,793 - __main__ - DEBUG - Create new mod 1
+2024-09-25 21:29:48,799 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 21:29:52,813 - __main__ - INFO - Error occured while getting profile, could be [] IDK
+2024-09-25 21:29:55,620 - __main__ - DEBUG - <ModPack 1>
+2024-09-25 21:29:59,099 - __main__ - DEBUG - <ModPack 1>
+2024-09-25 21:32:09,074 - __main__ - DEBUG - <ModPack 1>
+2024-09-25 21:32:21,347 - __main__ - DEBUG - profile map id 1
+2024-09-25 21:32:21,347 - __main__ - DEBUG - 1
+2024-09-25 21:32:50,724 - __main__ - CRITICAL - Failed to set profile gluh gluh

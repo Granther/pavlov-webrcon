@@ -44,7 +44,7 @@ class ModPack(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created = db.Column(db.TIMESTAMP, nullable=False, server_default=db.func.now())
-    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'), nullable=True)
+    profile_id = db.Column(db.Integer, db.ForeignKey('profile.id'))
     name = db.Column(db.String, nullable=False)
     mods = db.relationship('Mod', backref='mod_pack', lazy=True)
 
