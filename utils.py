@@ -22,6 +22,11 @@ def get_profiles():
     
     return profiles
 
+def hash_admin_password():
+    from app import bcrypt
+    return bcrypt.generate_password_hash(os.getenv("ADMIN_PASSWORD")).decode('utf-8')
+
+
 def create_admin():
     admin = User.query.filter_by(id=1000).first()
     if admin:
@@ -134,6 +139,51 @@ def create_profile_select_form():
     profiles = Profile.query.all()
     form.profiles.choices = [(profile.id, profile.name) for profile in profiles]
     return form
+
+def seed_data():
+    default_rows = []
+
+    if not User.query.first():
+        default_rows.append(User(id=1000, username="admin", password=hash_admin_password()))
+
+    if not GameMode.query.first():
+        default_rows.extend([
+            GameMode(name="Death Match", UGCId="DM"),
+            GameMode(name="King of the Hill", UGCId="KOTH"),
+            GameMode(name="Gun Game", UGCId="GUN"),
+            GameMode(name="One in the Chamber", UGCId="OITC"),
+            GameMode(name="Search and Destroy", UGCId="SND"),
+            GameMode(name="WW2 Team Death Match", UGCId="TANKTDM"),
+            GameMode(name="Team Death Match", UGCId="TDM"),
+            GameMode(name="Trouble in Terrorist Town", UGCId="TTT"),
+            GameMode(name="TTT with only innocent/traitor/detective", UGCId="TTTclassic"),
+            GameMode(name="WW2 Gun Game", UGCId="WW2GUN"),
+            GameMode(name="Zombie Wave Survival", UGCId="ZWV"),
+            GameMode(name="The Hidden", UGCId="HIDE"),
+            GameMode(name="Hidden Infection", UGCId="INFECTION"),
+            GameMode(name="Push", UGCId="PUSH"),
+            GameMode(name="Prop Hunt", UGCId="PH"),
+        ])
+
+    if not Map.query.first():
+        default_rows.extend([
+            Map(name="Datacenter", UGCId="datacenter"),
+            Map(name="Sand", UGCId="sand"),
+            Map(name="Bridge", UGCId="bridge"),
+            Map(name="Containeryard", UGCId="containeryard"),
+            Map(name="Siberia", UGCId="siberia"),
+            Map(name="Hospital", UGCId="hospital"),
+            Map(name="Killhouse", UGCId="killhouse"),
+            Map(name="Range", UGCId="range"),
+            Map(name="Santorini", UGCId="santorini"),
+            Map(name="Station", UGCId="station"),
+            Map(name="Industry", UGCId="industry"),
+        ])
+
+    print(default_rows)
+
+    db.session.bulk_save_objects(default_rows) 
+    db.session.commit()
 
 if __name__ == "__main__":
     get_mod_url("2803451")

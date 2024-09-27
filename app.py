@@ -10,7 +10,7 @@ from models import User, Map, Mod, GameMode, ModPack, Profile
 from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, ModPackForm, NewProfileForm, RotateButton, SelectProfileForm
 from logger import create_logger
 from pavrcon import set_profile, rotate_map
-from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form, get_mod_url
+from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form, get_mod_url, seed_data
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -31,6 +31,7 @@ logger = create_logger(__name__)
 
 with app.app_context():
     db.create_all()
+    seed_data()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -53,7 +54,7 @@ def index():
 
 @app.route("/init_admin", methods=['POST', 'GET'])
 def init_admin():
-    create_admin()
+    # create_admin()
     return redirect(url_for('index'))
 
 @app.route("/new_map", methods=['POST', 'GET'])

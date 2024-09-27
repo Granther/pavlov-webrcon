@@ -444,3 +444,41 @@
 2024-09-26 23:15:52,631 - pavrcon - INFO - Current Rotation: [{'MapId': 'sand', 'GameMode': 'GUN'}, {'MapId': 'UGC2970978', 'GameMode': 'UGC3267976'}]
 2024-09-26 23:15:52,699 - pavrcon - INFO - Removed {'MapId': 'sand', 'GameMode': 'GUN'} from rotation
 2024-09-26 23:15:53,061 - pavrcon - INFO - Successfully rotated map
+2024-09-26 23:38:11,031 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2024-09-26 23:45:56,422 - __main__ - DEBUG - Create new mod 3370978
+2024-09-26 23:46:12,393 - __main__ - DEBUG - 3370978
+2024-09-26 23:51:07,675 - __main__ - DEBUG - Create new mod 3370978
+2024-09-26 23:51:16,013 - __main__ - DEBUG - 3370978
+2024-09-26 23:51:19,197 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-26 23:51:19,298 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3370978', 'Successful': True}
+2024-09-26 23:51:19,298 - pavrcon - INFO - Added modID UGC3370978 to Game.ini
+2024-09-26 23:51:19,400 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2024-09-26 23:51:19,498 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC2970978', 'GameMode': 'UGC3267976'}, {'MapId': 'UGC2970978', 'GameMode': 'UGC3267976'}, {'MapId': 'UGC2970978', 'GameMode': 'UGC3267976'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2024-09-26 23:51:19,604 - pavrcon - INFO - Removed {'MapId': 'UGC2970978', 'GameMode': 'UGC3267976'} from rotation
+2024-09-26 23:51:19,717 - pavrcon - INFO - Removed {'MapId': 'UGC2970978', 'GameMode': 'UGC3267976'} from rotation
+2024-09-26 23:51:19,837 - pavrcon - INFO - Removed {'MapId': 'UGC2970978', 'GameMode': 'UGC3267976'} from rotation
+2024-09-26 23:51:58,917 - __main__ - DEBUG - 3370978
+2024-09-26 23:52:04,438 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-26 23:52:04,537 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3370978', 'Successful': True}
+2024-09-26 23:52:04,537 - pavrcon - INFO - Added modID UGC3370978 to Game.ini
+2024-09-26 23:52:04,642 - pavrcon - INFO - Added new rotation of killhouse with gamemode PH
+2024-09-26 23:52:04,742 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'killhouse', 'GameMode': 'PH'}]
+2024-09-26 23:52:04,843 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2024-09-26 23:52:07,159 - pavrcon - INFO - Successfully rotated map
+2024-09-26 23:54:51,035 - __main__ - DEBUG - Create new mod cash
+2024-09-26 23:55:33,816 - __main__ - DEBUG - cash modpack
+2024-09-26 23:55:45,207 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-26 23:55:45,311 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3267926', 'Successful': True}
+2024-09-26 23:55:45,311 - pavrcon - INFO - Added modID UGC3267926 to Game.ini
+2024-09-26 23:55:45,418 - pavrcon - INFO - Added new rotation of siberia with gamemode SND
+2024-09-26 23:55:45,518 - pavrcon - INFO - Current Rotation: [{'MapId': 'killhouse', 'GameMode': 'PH'}, {'MapId': 'siberia', 'GameMode': 'SND'}]
+2024-09-26 23:55:45,620 - pavrcon - INFO - Removed {'MapId': 'killhouse', 'GameMode': 'PH'} from rotation
+2024-09-26 23:56:03,744 - pavrcon - INFO - Successfully rotated map
+2024-09-26 23:56:58,173 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-26 23:56:58,281 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3370978', 'Successful': True}
+2024-09-26 23:56:58,282 - pavrcon - INFO - Added modID UGC3370978 to Game.ini
+2024-09-26 23:56:58,381 - pavrcon - INFO - Added new rotation of killhouse with gamemode PH
+2024-09-26 23:56:58,482 - pavrcon - INFO - Current Rotation: [{'MapId': 'siberia', 'GameMode': 'SND'}, {'MapId': 'killhouse', 'GameMode': 'PH'}]
+2024-09-26 23:56:58,593 - pavrcon - INFO - Removed {'MapId': 'siberia', 'GameMode': 'SND'} from rotation
+2024-09-26 23:56:59,904 - pavrcon - INFO - Successfully rotated map
+2024-09-26 23:59:56,867 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
