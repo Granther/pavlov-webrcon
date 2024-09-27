@@ -219,7 +219,7 @@ def admin_set_profile():
 
     if form.validate_on_submit():
         try:
-            profile = Profile.query.get(form.profileid.data)
+            profile = Profile.query.get(form.profiles.data)
             mods = []
             for mod in profile.modpack.mods:
                 mods.append(mod.UGCId)

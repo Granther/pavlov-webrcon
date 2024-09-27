@@ -431,3 +431,16 @@
 2024-09-26 18:41:15,983 - __main__ - DEBUG - Create new mod Scope+
 2024-09-26 18:41:42,101 - __main__ - DEBUG - Create new gamemode Random Gun
 2024-09-26 18:43:19,182 - __main__ - DEBUG - Scopes
+2024-09-26 23:10:06,291 - utils - ERROR - Error occured when checking UGC compadibility: the JSON object must be str, bytes or bytearray, not NoneType
+2024-09-26 23:13:25,043 - __main__ - DEBUG - Create new gamemode gun
+2024-09-26 23:14:11,603 - __main__ - DEBUG - Create new mod bug
+2024-09-26 23:14:37,757 - __main__ - DEBUG - Create new map nuk
+2024-09-26 23:14:48,027 - __main__ - DEBUG - n
+2024-09-26 23:15:01,378 - __main__ - INFO - 1
+2024-09-26 23:15:52,423 - pavrcon - INFO - Cleared mods from Game.ini
+2024-09-26 23:15:52,487 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC4252045', 'Successful': True}
+2024-09-26 23:15:52,488 - pavrcon - INFO - Added modID UGC4252045 to Game.ini
+2024-09-26 23:15:52,564 - pavrcon - INFO - Added new rotation of UGC2970978 with gamemode UGC3267976
+2024-09-26 23:15:52,631 - pavrcon - INFO - Current Rotation: [{'MapId': 'sand', 'GameMode': 'GUN'}, {'MapId': 'UGC2970978', 'GameMode': 'UGC3267976'}]
+2024-09-26 23:15:52,699 - pavrcon - INFO - Removed {'MapId': 'sand', 'GameMode': 'GUN'} from rotation
+2024-09-26 23:15:53,061 - pavrcon - INFO - Successfully rotated map

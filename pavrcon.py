@@ -114,9 +114,6 @@ class PavRCON:
                 self.logger.fatal("Error occured while getting server info")
                     
             rcon_socket.close()
-
-            self.rotate_map()
-
             return True
         
         else:
@@ -148,5 +145,12 @@ def rotate_map():
     return _pavrcon.rotate_map()
 
 if __name__ == "__main__":
+    # _pavrcon = PavRCON()
+
+    # rcon_socket = _pavrcon._authenticate_rcon()
+
+    # if rcon_socket:
+    #     server_info = _pavrcon._send_rcon_command(rcon_socket, "RemoveMapRotation ")
+
     #set_profile(map_id="datacenter", gamemode_id="TTT", mods=["UGC3945345"])
     pass
