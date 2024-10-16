@@ -54,7 +54,7 @@ def index():
 
 @app.route("/init_admin", methods=['POST', 'GET'])
 def init_admin():
-    # create_admin()
+    create_admin()
     return redirect(url_for('index'))
 
 @app.route("/new_map", methods=['POST', 'GET'])
