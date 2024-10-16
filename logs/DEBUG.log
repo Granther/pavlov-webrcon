@@ -482,3 +482,51 @@
 2024-09-26 23:56:58,593 - pavrcon - INFO - Removed {'MapId': 'siberia', 'GameMode': 'SND'} from rotation
 2024-09-26 23:56:59,904 - pavrcon - INFO - Successfully rotated map
 2024-09-26 23:59:56,867 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2024-10-16 00:06:50,845 - pavrcon - INFO - Successfully rotated map
+2024-10-16 00:07:11,784 - pavrcon - INFO - Cleared mods from Game.ini
+2024-10-16 00:07:11,837 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3370978', 'Successful': True}
+2024-10-16 00:07:11,837 - pavrcon - INFO - Added modID UGC3370978 to Game.ini
+2024-10-16 00:07:11,888 - pavrcon - INFO - Added new rotation of killhouse with gamemode PH
+2024-10-16 00:07:11,932 - pavrcon - INFO - Current Rotation: [{'MapId': 'killhouse', 'GameMode': 'PH'}, {'MapId': 'killhouse', 'GameMode': 'PH'}]
+2024-10-16 00:20:25,158 - __main__ - DEBUG - huh
+2024-10-16 00:20:34,170 - pavrcon - INFO - Cleared mods from Game.ini
+2024-10-16 00:20:34,213 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3370978', 'Successful': True}
+2024-10-16 00:20:34,213 - pavrcon - INFO - Added modID UGC3370978 to Game.ini
+2024-10-16 00:20:34,257 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3267926', 'Successful': True}
+2024-10-16 00:20:34,257 - pavrcon - INFO - Added modID UGC3267926 to Game.ini
+2024-10-16 00:20:34,301 - pavrcon - INFO - Added new rotation of siberia with gamemode ZWV
+2024-10-16 00:20:34,357 - pavrcon - INFO - Current Rotation: [{'MapId': 'killhouse', 'GameMode': 'PH'}, {'MapId': 'killhouse', 'GameMode': 'PH'}, {'MapId': 'siberia', 'GameMode': 'ZWV'}]
+2024-10-16 00:20:34,406 - pavrcon - INFO - Removed {'MapId': 'killhouse', 'GameMode': 'PH'} from rotation
+2024-10-16 00:20:34,450 - pavrcon - INFO - Removed {'MapId': 'killhouse', 'GameMode': 'PH'} from rotation
+2024-10-16 00:20:36,687 - pavrcon - INFO - Successfully rotated map
+2024-10-16 00:22:32,023 - pavrcon - INFO - Cleared mods from Game.ini
+2024-10-16 00:22:32,060 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3370978', 'Successful': True}
+2024-10-16 00:22:32,060 - pavrcon - INFO - Added modID UGC3370978 to Game.ini
+2024-10-16 00:22:32,104 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC3267926', 'Successful': True}
+2024-10-16 00:22:32,105 - pavrcon - INFO - Added modID UGC3267926 to Game.ini
+2024-10-16 00:22:32,148 - pavrcon - INFO - Added new rotation of siberia with gamemode ZWV
+2024-10-16 00:22:32,194 - pavrcon - INFO - Current Rotation: [{'MapId': 'siberia', 'GameMode': 'ZWV'}, {'MapId': 'siberia', 'GameMode': 'ZWV'}]
+2024-10-16 00:22:37,260 - pavrcon - INFO - Cleared mods from Game.ini
+2024-10-16 00:22:37,303 - pavrcon - INFO - Added new rotation of killhouse with gamemode PH
+2024-10-16 00:22:37,352 - pavrcon - INFO - Current Rotation: [{'MapId': 'siberia', 'GameMode': 'ZWV'}, {'MapId': 'siberia', 'GameMode': 'ZWV'}, {'MapId': 'killhouse', 'GameMode': 'PH'}]
+2024-10-16 00:22:37,395 - pavrcon - INFO - Removed {'MapId': 'siberia', 'GameMode': 'ZWV'} from rotation
+2024-10-16 00:22:37,439 - pavrcon - INFO - Removed {'MapId': 'siberia', 'GameMode': 'ZWV'} from rotation
+2024-10-16 00:23:17,874 - __main__ - DEBUG - vgff
+2024-10-16 00:23:36,538 - __main__ - DEBUG - f
+2024-10-16 00:44:33,523 - __main__ - DEBUG - Create new mod mod
+2024-10-16 00:44:45,592 - __main__ - DEBUG - d
+2024-10-16 00:48:27,858 - __main__ - DEBUG - d
+2024-10-16 00:51:15,206 - __main__ - DEBUG - Create new mod hu
+2024-10-16 00:51:26,078 - __main__ - DEBUG - d
+2024-10-16 00:52:40,006 - __main__ - DEBUG - d
+2024-10-16 00:52:40,006 - __main__ - DEBUG - Sand
+2024-10-16 00:53:34,948 - __main__ - DEBUG - d
+2024-10-16 00:53:34,949 - __main__ - DEBUG - Sand
+2024-10-16 00:53:50,472 - __main__ - DEBUG - d
+2024-10-16 00:53:50,472 - __main__ - DEBUG - Sand
+2024-10-16 00:58:11,779 - __main__ - DEBUG - Create new mod mod
+2024-10-16 00:58:40,390 - __main__ - DEBUG - s
+2024-10-16 00:58:40,391 - __main__ - DEBUG - Sand
+2024-10-16 00:59:00,626 - __main__ - DEBUG - s
+2024-10-16 00:59:00,626 - __main__ - DEBUG - Datacenter
+2024-10-16 01:02:29,154 - __main__ - DEBUG - Create new mod 3267965

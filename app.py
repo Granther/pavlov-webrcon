@@ -148,9 +148,10 @@ def new_profile():
         new_profile = Profile(name=form.name.data)
         
         logger.debug(form.modpack.data)
+        logger.debug(form.map.data)
 
-        new_profile.modpack = form.modpack.data
         new_profile.map = form.map.data
+        new_profile.modpack = form.modpack.data
         new_profile.gamemode = form.gamemode.data
 
         db.session.add(new_profile)

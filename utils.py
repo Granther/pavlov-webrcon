@@ -143,8 +143,8 @@ def create_profile_select_form():
 def seed_data():
     default_rows = []
 
-    if not User.query.first():
-        default_rows.append(User(id=1000, username="admin", password=hash_admin_password()))
+    # if not User.query.first():
+    #     default_rows.append(User(id=1000, username="admin", password=hash_admin_password()))
 
     if not GameMode.query.first():
         default_rows.extend([
