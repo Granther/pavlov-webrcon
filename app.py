@@ -293,9 +293,8 @@ def modpack(id):
 @app.route("/modpack/edit/<int:id>", methods=['GET', 'POST'])
 def edit_modpack(id):
     modpack = ModPack.query.get(id)
-    form = ModPackForm(data={"mods": modpack.mods})
+    form = ModPackForm(data={"mods": modpack.mods, "name": modpack.name})
     form.mods.query = Mod.query.all()
-    form.name.data = modpack.name
 
     if form.validate_on_submit():
         modpack.name = form.name.data
@@ -322,13 +321,13 @@ def delete_modpack(id):
 @app.route("/profile/edit/<int:id>", methods=['GET', 'POST'])
 def edit_profile(id):
     profile = Profile.query.get(id)
-    form = NewProfileForm(data={"modpack": profile.modpack, "map": profile.map, "gamemode": profile.gamemode})
+    form = NewProfileForm(data={"modpack": profile.modpack, "map": profile.map, "gamemode": profile.gamemode, "name": profile.name})
     form.modpack.query = ModPack.query.all()
     form.map.query = Map.query.all()
     form.gamemode.query = GameMode.query.all()
-    form.name.data = profile.name
 
-    if form.validate_on_submit():        
+    if form.validate_on_submit():   
+        profile.name = form.name.data     
         profile.map = form.map.data
         profile.modpack = form.modpack.data
         profile.gamemode = form.gamemode.data
