@@ -308,8 +308,8 @@ def edit_modpack(id):
     
     return render_template("new_modpack.html", form=form)
 
-@admin_authorized
 @app.route("/modpack/delete/<int:id>", methods=['POST', 'GET'])
+@admin_authorized
 def delete_modpack(id):
     modpack = ModPack.query.get(id)
     if modpack:
@@ -339,8 +339,8 @@ def edit_profile(id):
     
     return render_template("new_profile.html", form=form)
 
-@admin_authorized
 @app.route("/profile/delete/<int:id>", methods=['POST', 'GET'])
+@admin_authorized
 def delete_profile(id):
     profile = Profile.query.get(id)
     if profile:

@@ -545,3 +545,6 @@
 2024-10-25 05:43:33,519 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
 2024-10-25 05:43:41,421 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
 2024-10-25 05:43:43,202 - __main__ - DEBUG - Deleting component of type: Gamemode with UGCId of KOTH
+2024-10-25 05:45:31,465 - __main__ - INFO - Deleted profile of id: 1
+2024-10-25 05:46:24,304 - __main__ - DEBUG - h
+2024-10-25 05:46:24,305 - __main__ - DEBUG - Datacenter
