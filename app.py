@@ -290,6 +290,30 @@ def modpack(id):
 
     return render_template("modpack.html", modpack=modpack)
 
+@app.route("/modpack/edit/<int:id>", methods=['GET', 'POST'])
+def edit_modpack(id):
+    modpack = ModPack.query.get(id)
+    form = ModPackForm(data={"mods": modpack.mods})
+    form.mods.query = Mod.query.all()
+    form.name.data = modpack.name
+
+    if form.validate_on_submit():
+        modpack.name = form.name.data
+        modpack.mods.clear()
+        modpack.mods.extend(form.mods.data)
+        db.session.add(modpack)
+        db.session.commit()
+
+        return redirect(url_for('index'))
+    
+    return render_template("new_modpack.html", form=form)
+
+@admin_authorized
+@app.route("/modpack/delete/<int:id>", methods=['POST'])
+def delete_modpack(id):
+    ModPack.query.get(id).delete()
+    logger.info(f"Deleted modpack of id: {id}")
+
 @app.route("/profile/<int:id>", methods=['GET'])
 def profile(id):
     profile = Profile.query.filter_by(id=id).first()
