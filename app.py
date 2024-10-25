@@ -309,10 +309,46 @@ def edit_modpack(id):
     return render_template("new_modpack.html", form=form)
 
 @admin_authorized
-@app.route("/modpack/delete/<int:id>", methods=['POST'])
+@app.route("/modpack/delete/<int:id>", methods=['POST', 'GET'])
 def delete_modpack(id):
-    ModPack.query.get(id).delete()
-    logger.info(f"Deleted modpack of id: {id}")
+    modpack = ModPack.query.get(id)
+    if modpack:
+        db.session.delete(modpack)
+        db.session.commit()
+        logger.info(f"Deleted modpack of id: {id}")
+
+    return redirect(url_for('index'))
+
+@app.route("/profile/edit/<int:id>", methods=['GET', 'POST'])
+def edit_profile(id):
+    profile = Profile.query.get(id)
+    form = NewProfileForm(data={"modpack": profile.modpack, "map": profile.map, "gamemode": profile.gamemode})
+    form.modpack.query = ModPack.query.all()
+    form.map.query = Map.query.all()
+    form.gamemode.query = GameMode.query.all()
+    form.name.data = profile.name
+
+    if form.validate_on_submit():        
+        profile.map = form.map.data
+        profile.modpack = form.modpack.data
+        profile.gamemode = form.gamemode.data
+
+        db.session.commit()
+
+        return redirect(url_for('index'))
+    
+    return render_template("new_profile.html", form=form)
+
+@admin_authorized
+@app.route("/profile/delete/<int:id>", methods=['POST', 'GET'])
+def delete_profile(id):
+    profile = Profile.query.get(id)
+    if profile:
+        db.session.delete(profile)
+        db.session.commit()
+        logger.info(f"Deleted profile of id: {id}")
+
+    return redirect(url_for('index'))
 
 @app.route("/profile/<int:id>", methods=['GET'])
 def profile(id):
