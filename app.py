@@ -356,5 +356,23 @@ def profile(id):
 
     return render_template("profile.html", profile=profile)
 
+@app.route("/delete/<ugc_type>/<ugcid>")
+def delete_component(ugc_type, ugcid):
+    if ugc_type == "Mod":
+        comp = Mod.query.filter_by(UGCId=ugcid).first()
+    elif ugc_type == "Gamemode":
+        comp = GameMode.query.filter_by(UGCId=ugcid).first()
+    elif ugc_type == "Map":
+        comp = Map.query.filter_by(UGCId=ugcid).first()
+    else:
+        logger.error(f"Attempted to delete component of type: {ugc_type} with UGCId of {ugcid} but did not find type...")
+        return redirect(url_for('index'))
+    
+    db.session.delete(comp)
+    db.session.commit()
+    logger.debug(f"Deleting component of type: {ugc_type} with UGCId of {ugcid}")
+    
+    return redirect(url_for('index'))
+
 if __name__ == "__main__":
     app.run(debug=True)

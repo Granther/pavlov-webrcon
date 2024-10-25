@@ -535,3 +535,13 @@
 2024-10-25 05:10:54,283 - __main__ - INFO - Deleted modpack of id: 1
 2024-10-25 05:18:31,824 - __main__ - DEBUG - h
 2024-10-25 05:18:31,824 - __main__ - DEBUG - Datacenter
+2024-10-25 05:32:27,538 - __main__ - INFO - Mod
+2024-10-25 05:38:50,659 - __main__ - DEBUG - Deleting component of type: Mod with UGCId of UGC3272975
+2024-10-25 05:38:52,797 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2024-10-25 05:38:54,160 - __main__ - DEBUG - Deleting component of type: Gamemode with UGCId of OITC
+2024-10-25 05:38:56,684 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2024-10-25 05:38:56,937 - __main__ - DEBUG - Deleting component of type: Map with UGCId of sand
+2024-10-25 05:39:04,936 - __main__ - DEBUG - Deleting component of type: Mod with UGCId of UGC4152672
+2024-10-25 05:43:33,519 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2024-10-25 05:43:41,421 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2024-10-25 05:43:43,202 - __main__ - DEBUG - Deleting component of type: Gamemode with UGCId of KOTH

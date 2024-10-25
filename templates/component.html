@@ -17,7 +17,9 @@
             <p>{{ type }} Name: <strong>{{ component.name }}</strong></p>
             <p>{{ type }} UGC: <a href="{{ modio_url }}" target="_blank"><strong>{{ component.UGCId }}</strong></a></p>
         </div>
-        <p><a href="{{ url_for('delete_component', ugcid=component.UGCId) }}">Delete</a></p>
+        <p>
+            <a class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 mb-5 rounded-full font-bold text-md transition duration-300" href="{{ url_for('delete_component', ugc_type=type, ugcid=component.UGCId) }}">Edit</a>
+        </p>
     </div>
 </div>
 {% endblock %}

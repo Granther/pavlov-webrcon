@@ -69,7 +69,7 @@ def create_component(form_type: str, name: str, ugcid: str) -> bool:
     except Exception as e:
         logger.error(f"Error occured while creating component: {e}")
         return False
-    
+
 def verify_UGC(ugcid: str):
     if ugcid[:3] != 'UGC':
         print(ugcid[:2])
