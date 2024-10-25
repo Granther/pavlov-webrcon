@@ -22,4 +22,4 @@
 
 ### Deploy
 - This can be deployed in a Docker container, env variables defined in .env_example must be defined in order for it to find the pavlov server
-- The Pavlov server must allow RCON on the port
+- The Pavlov server must allow RCON on port defined in the `RCON_PORT` env variable
