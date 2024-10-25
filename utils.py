@@ -46,9 +46,6 @@ def admin_authorized(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not current_user.is_authenticated:
-            return redirect(url_for('login'))
-
-        if current_user.id != 1000:
             flash("Sorry, you cannot access that page", "danger")
             return redirect(url_for('joke'))
         else:
