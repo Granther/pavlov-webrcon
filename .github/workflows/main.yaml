@@ -1,0 +1,29 @@
+name: Pavlov-WebRcon Pipeline
+
+on: 
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    working-directory: pavlov-rcon
+
+jobs:
+  build-and-test:
+    runs-on: python:3.11-slim-buster
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - run: echo "The ${{ github.repository }} repo has been cloned to the runnner"
+      
+      - name: Files in Repo
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Pip install dependencies
+        run: pip install -r requirements
+
+      - name: Start webserver
+        run: gunicorn -b 0.0.0.0:5010 app:app --workers=1
+        
