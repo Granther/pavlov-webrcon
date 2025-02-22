@@ -11,40 +11,21 @@
 {% block content %}
 <div class="flex flex-row gap-x-6 items-start justify-center min-h-screen bg-gray-900 p-8">
     <div class="bg-gray-800 shadow-lg p-8 w-full max-w-lg rounded-lg">
-        <h2 class="text-center text-2xl font-semibold mb-6 text-white">Register Maps, Mods & Gamemodes</h2>
+        <h2 class="text-center text-2xl font-semibold mb-6 text-white">Register a Map, Mod or Gamemode</h2>
 
         <div class="text-area mb-6 p-4 bg-blue-100 rounded-lg text-blue-700">
-            <p class="text-center">Only fill out ONE AT A TIME!</p>
+		<p class="text-center">Make sure its <strong>Linux</strong> compatible!</p>
         </div>
 
-        <form method="POST" action="{{ url_for('new_map') }}" class="text-white">
-            <h1 class="text-xl text-white mt-4 text-center">Add Map</h1>
-            {{ map_form.hidden_tag() }}
+        <form method="POST" action="{{ url_for('new_item') }}" class="text-white">
+            <h1 class="text-xl text-white mt-4 text-center pb-6">Add Item (Map, Mod, Gamemode)</h1>
+            {{ add_item_form.hidden_tag() }}
             <div class="mb-4">
-                {{ map_form.name.label }} {{ map_form.name }}
-                {{ map_form.id.label }} {{ map_form.id }}
+		<div>{{ add_item_form.type.label }} {{ add_item_form.type }}</div>
+                {{ add_item_form.name.label }} {{ add_item_form.name }}
+                {{ add_item_form.id.label }} {{ add_item_form.id }}
             </div>
-            {{ map_form.submit() }}
-        </form>
-
-        <form method="POST" action="{{ url_for('new_gamemode') }}" class="text-white">
-            <h1 class="text-xl text-white mt-4 text-center">Add Gamemode</h1>
-            {{ gamemode_form.hidden_tag() }}
-            <div class="mb-4">
-                {{ gamemode_form.name.label }} {{ gamemode_form.name }}
-                {{ gamemode_form.id.label }} {{ gamemode_form.id }}
-            </div>
-            {{ gamemode_form.submit() }}
-        </form>
-
-        <form method="POST" action="{{ url_for('new_mod') }}" class="text-white">
-            <h1 class="text-xl text-white mt-4 text-center">Add Mod</h1>
-            {{ mod_form.hidden_tag() }}
-            <div class="mb-4">
-                {{ mod_form.name.label }} {{ mod_form.name }}
-                {{ mod_form.id.label }} {{ mod_form.id }}
-            </div>
-            {{ mod_form.submit() }}
+            {{ add_item_form.submit() }}
         </form>
     </div>
 </div>

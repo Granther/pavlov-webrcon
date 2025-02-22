@@ -548,3 +548,7 @@
 2024-10-25 05:45:31,465 - __main__ - INFO - Deleted profile of id: 1
 2024-10-25 05:46:24,304 - __main__ - DEBUG - h
 2024-10-25 05:46:24,305 - __main__ - DEBUG - Datacenter
+2025-02-22 03:01:03,267 - __main__ - DEBUG - Form is validated
+2025-02-22 03:01:03,267 - __main__ - DEBUG - Type: Map
+2025-02-22 03:01:14,323 - __main__ - DEBUG - Form is validated
+2025-02-22 03:01:14,323 - __main__ - DEBUG - Type: Mod

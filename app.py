@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, current_user, logout_user, log
 
 from db_factory import db
 from models import User, Map, Mod, GameMode, ModPack, Profile
-from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, ModPackForm, NewProfileForm, RotateButton, SelectProfileForm
+from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, ModPackForm, NewProfileForm, RotateButton, SelectProfileForm, NewItemForm
 from logger import create_logger
 from pavrcon import set_profile, rotate_map
 from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form, get_mod_url, seed_data
@@ -39,9 +39,10 @@ def load_user(user_id):
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
-    map_form = NewMapForm()
-    gamemode_form = NewGamemodeForm()
-    mod_form = NewModForm()
+    #map_form = NewMapForm()
+    #gamemode_form = NewGamemodeForm()
+    #mod_form = NewModForm()
+    new_item_form = NewItemForm()
 
     mods = Mod.query.all()
     maps = Map.query.all()
@@ -49,8 +50,8 @@ def index():
     modpacks = ModPack.query.all()
     profiles = Profile.query.all()
 
-    return render_template("home.html", map_form=map_form, mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks,
-                           gamemode_form=gamemode_form, mod_form=mod_form, profiles=profiles)
+    #return render_template("home.html", map_form=map_form, mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks,
+    return render_template("home.html", mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks, profiles=profiles, add_item_form=new_item_form)
 
 @app.route("/init_admin", methods=['POST', 'GET'])
 def init_admin():
@@ -76,6 +77,28 @@ def new_map():
         logger.debug(f"Create new map {map_form.name.data}")
         return redirect(url_for('index'))
     
+    return redirect(url_for('index'))
+
+@app.route("/new_item", methods=["POST", "GET"])
+def new_item():
+    new_item_form = NewItemForm()
+
+    if new_item_form.validate_on_submit():
+        item_type_name = new_item_form.type.data
+        result, msg = verify_compadible(new_item_form.id.data, modtype=item_type_name.lower())
+        if not result:
+            flash(msg)
+            return redirect(url_for('index'))
+        
+        res = create_component(form_type=item_type_name, name=new_item_form.name.data, ugcid=new_item_form.id.data)
+        if not res:
+            flash(f"Error creating new {new_item_form.type.data} entry")
+            return redirect(url_for('index'))
+        
+        flash("fSuccessfully created new {new_item_form.type.data} entry")
+        logger.debug(f"Created new {item_type_name} {new_item_form.name.data}")
+        return redirect(url_for('index'))
+
     return redirect(url_for('index'))
 
 @app.route("/new_gamemode", methods=['POST', 'GET'])
