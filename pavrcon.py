@@ -134,7 +134,20 @@ class PavRCON:
                 self.logger.fatal("Error occured while rotating map")
                 rcon_socket.close()
                 return False
-            
+
+    def send_command(command: str):
+        rcon_socket = self._authenticate_rcon()
+    
+        if rcon_socket:
+            result = self._send_rcon_command(rcon_socket, command)
+            if bool(result['Successful']):
+                self.logger.info(f"Successfully sent RCON command: {command}")
+                rcon_socket.close()
+                return result
+            else:
+                self.logger.fatal(f"Error occured while sending command: {command}")
+                rcon_socket.close()
+                return None   
 
 _pavrcon = PavRCON()
 
@@ -143,6 +156,12 @@ def set_profile(map_id: str, gamemode_id: str, mods: list) -> bool:
 
 def rotate_map():
     return _pavrcon.rotate_map()
+
+def server_status():
+    status = _pavrcon.send_command('ServerInfo')
+    if not status:
+        return False
+    return dict(status['ServerInfo'])
 
 if __name__ == "__main__":
     # _pavrcon = PavRCON()
