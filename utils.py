@@ -57,7 +57,7 @@ def admin_authorized(f):
 def create_component(form_type: str, name: str, ugcid: str) -> bool:
     def string_to_type(class_name):
         return globals()[class_name]
-    
+   
     try:
         new_map = string_to_type(form_type)(name=name, UGCId=ugcid)
         db.session.add(new_map)
@@ -80,8 +80,6 @@ def verify_compadible(ugcid: str, modtype: str):
     }
     url = "https://u-24475661.modapi.io/v1/games/3959/mods/"
 
-    # Remove 'UGC' from ID
-    ugcid = verify_UGC(ugcid)
     if not ugcid:
         return False, "ID must include 'UGC' at the beginning, boomer, like so, UGC4206969"
 
@@ -94,9 +92,8 @@ def verify_compadible(ugcid: str, modtype: str):
         metadata_blob = json.loads(json_response.get("metadata_blob"))
         json_modtype = dict(metadata_blob).get('ModType')
 
-        # if json_modtype.lower() != modtype:
-        #     return False, f"ID entered is not a {modtype}, but actually a {json_modtype}"
-        
+        #print("Json response", json_response)
+
         platforms = json_response.get("platforms", False)
         for platform in platforms:
             if 'linux' in platform.values():
@@ -114,7 +111,6 @@ def get_mod_url(ugcid: str):
     }
     url = f"https://u-24475661.modapi.io/v1/games/3959/mods/"
 
-    ugcid = verify_UGC(ugcid)
     if not ugcid:
         logger.error("Not able to verify integrity of UGCID while getting URL")
         return None
@@ -129,6 +125,29 @@ def get_mod_url(ugcid: str):
 
     except Exception as e:
         logger.error(f"Error occured while getting mod URL: {e}")
+        return None
+
+def get_mod_field(ugcid: str, field_name: str):
+    headers = {
+    'Accept': 'application/json'
+    }
+    url = f"https://u-24475661.modapi.io/v1/games/3959/mods/"
+
+    ugcid = verify_UGC(ugcid)
+    if not ugcid:
+        logger.error("Not able to verify integrity of UGCID while getting URL")
+        return None
+
+    try:
+        response = requests.get(f'{url}{ugcid}', 
+                                params={'api_key': os.getenv('MODIO_API_KEY')}, 
+                                headers = headers)
+        json_response = json.loads(response.content)
+
+        return json_response.get(field_name)
+
+    except Exception as e:
+        logger.error(f"Error occured while getting mod data in field {field_name}: {e}")
         return None
 
 def create_profile_select_form():

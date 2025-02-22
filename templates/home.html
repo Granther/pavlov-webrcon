@@ -19,13 +19,13 @@
 
         <form method="POST" action="{{ url_for('new_item') }}" class="text-white">
             <h1 class="text-xl text-white mt-4 text-center pb-6">Add Item (Map, Mod, Gamemode)</h1>
-            {{ add_item_form.hidden_tag() }}
+            {{ new_item_form.hidden_tag() }}
             <div class="mb-4">
-		<div>{{ add_item_form.type.label }} {{ add_item_form.type }}</div>
-                {{ add_item_form.name.label }} {{ add_item_form.name }}
-                {{ add_item_form.id.label }} {{ add_item_form.id }}
+		<div>{{ new_item_form.type.label }} {{ new_item_form.type }}</div>
+                {{ new_item_form.name.label }} {{ new_item_form.name }}
+                {{ new_item_form.id.label }} {{ new_item_form.id }}
             </div>
-            {{ add_item_form.submit() }}
+            {{ new_item_form.submit() }}
         </form>
     </div>
 </div>

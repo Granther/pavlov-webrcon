@@ -10,7 +10,7 @@ from models import User, Map, Mod, GameMode, ModPack, Profile
 from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, ModPackForm, NewProfileForm, RotateButton, SelectProfileForm, NewItemForm
 from logger import create_logger
 from pavrcon import set_profile, rotate_map
-from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form, get_mod_url, seed_data
+from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form, get_mod_url, seed_data, get_mod_field
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -51,7 +51,7 @@ def index():
     profiles = Profile.query.all()
 
     #return render_template("home.html", map_form=map_form, mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks,
-    return render_template("home.html", mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks, profiles=profiles, add_item_form=new_item_form)
+    return render_template("home.html", mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks, profiles=profiles, new_item_form=new_item_form)
 
 @app.route("/init_admin", methods=['POST', 'GET'])
 def init_admin():
@@ -85,6 +85,10 @@ def new_item():
 
     if new_item_form.validate_on_submit():
         item_type_name = new_item_form.type.data
+
+        ug_name = get_mod_field(ugcid=new_item_form.id.data, field_name='name')
+        logger.debug(f"name: {ug_name}")
+
         result, msg = verify_compadible(new_item_form.id.data, modtype=item_type_name.lower())
         if not result:
             flash(msg)
@@ -95,7 +99,7 @@ def new_item():
             flash(f"Error creating new {new_item_form.type.data} entry")
             return redirect(url_for('index'))
         
-        flash("fSuccessfully created new {new_item_form.type.data} entry")
+        flash(f"Successfully created new {new_item_form.type.data} entry")
         logger.debug(f"Created new {item_type_name} {new_item_form.name.data}")
         return redirect(url_for('index'))
 

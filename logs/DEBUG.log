@@ -552,3 +552,32 @@
 2025-02-22 03:01:03,267 - __main__ - DEBUG - Type: Map
 2025-02-22 03:01:14,323 - __main__ - DEBUG - Form is validated
 2025-02-22 03:01:14,323 - __main__ - DEBUG - Type: Mod
+2025-02-22 03:08:45,799 - utils - ERROR - Error occured when checking UGC compadibility: the JSON object must be str, bytes or bytearray, not NoneType
+2025-02-22 03:09:17,115 - utils - ERROR - Error occured when checking UGC compadibility: the JSON object must be str, bytes or bytearray, not NoneType
+2025-02-22 03:09:37,119 - utils - ERROR - Error occured when checking UGC compadibility: the JSON object must be str, bytes or bytearray, not NoneType
+2025-02-22 03:10:12,643 - __main__ - DEBUG - Mod
+2025-02-22 03:10:12,939 - utils - ERROR - Error occured when checking UGC compadibility: the JSON object must be str, bytes or bytearray, not NoneType
+2025-02-22 03:11:53,574 - __main__ - DEBUG - Mod
+2025-02-22 03:11:54,115 - __main__ - DEBUG - Created new Mod 4482587
+2025-02-22 03:12:07,197 - __main__ - DEBUG - Map
+2025-02-22 03:12:07,655 - __main__ - DEBUG - Created new Map dddd
+2025-02-22 03:14:58,356 - __main__ - DEBUG - GameMode
+2025-02-22 03:14:58,876 - __main__ - DEBUG - Created new GameMode sss
+2025-02-22 03:25:03,897 - __main__ - DEBUG - Created new Mod 4482587
+2025-02-22 03:25:45,535 - __main__ - DEBUG - Created new Mod jhj
+2025-02-22 03:27:47,999 - __main__ - DEBUG - Created new Mod lll
+2025-02-22 03:28:06,985 - __main__ - DEBUG - name: [MOD] Daniel's Armory
+2025-02-22 03:28:07,485 - __main__ - DEBUG - Created new Mod www
+2025-02-22 03:30:21,410 - __main__ - DEBUG - name: None
+2025-02-22 03:30:21,691 - utils - ERROR - Error occured when checking UGC compadibility: the JSON object must be str, bytes or bytearray, not NoneType
+2025-02-22 03:30:31,330 - __main__ - DEBUG - name: CGNik's TTT Roles (MOD)
+2025-02-22 03:30:31,862 - __main__ - DEBUG - Created new Map 3970532
+2025-02-22 03:35:46,142 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2025-02-22 03:35:46,142 - __main__ - DEBUG - name: None
+2025-02-22 03:35:46,555 - __main__ - DEBUG - Created new Mod 3970532
+2025-02-22 03:38:51,700 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2025-02-22 03:38:51,700 - __main__ - DEBUG - name: None
+2025-02-22 03:38:52,055 - __main__ - DEBUG - Created new Mod 3970532
+2025-02-22 03:40:17,498 - utils - ERROR - Not able to verify integrity of UGCID while getting URL
+2025-02-22 03:40:17,498 - __main__ - DEBUG - name: None
+2025-02-22 03:40:17,997 - __main__ - DEBUG - Created new Mod 3970532
