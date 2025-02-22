@@ -201,6 +201,15 @@ def login():
 
     return render_template('login.html', title='Login', form=form)
 
+@app.route("/query_ugc", methods=['POST'])
+def query_ugc():
+    data = request.json
+    ugcid = data['ugc']
+    logger.debug(ugcid)
+    ug_name = get_mod_field(ugcid=str(ugcid), field_name='name')
+    logger.debug(ug_name)
+    return jsonify({"title": ug_name})
+
 @app.route("/boomer")
 def boomer():
     return render_template("boomer.html")

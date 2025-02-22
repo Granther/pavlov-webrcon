@@ -133,7 +133,6 @@ def get_mod_field(ugcid: str, field_name: str):
     }
     url = f"https://u-24475661.modapi.io/v1/games/3959/mods/"
 
-    ugcid = verify_UGC(ugcid)
     if not ugcid:
         logger.error("Not able to verify integrity of UGCID while getting URL")
         return None

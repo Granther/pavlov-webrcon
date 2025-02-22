@@ -27,6 +27,7 @@
             </div>
             {{ new_item_form.submit() }}
         </form>
+	<button id="queryBtn">Query</button>
     </div>
 </div>
 
@@ -102,4 +103,56 @@
         </div>
     </div>
 </div>
+<script>
+	const queryBtn = document.getElementById("queryBtn"); queryBtn.disabled = true;
+	const ugcidTextbox = document.getElementById("newItemId");
+	const nameTextbox = document.getElementById("newItemName");
+
+	document.addEventListener("DOMContentLoaded", function () {
+	    ugcidTextbox.addEventListener("input", function () {
+		if (ugcidTextbox.value.length === 7) {
+		    queryBtn.disabled = false;
+		    console.log("enabled");
+		}
+	    });
+	    
+	    ugcidTextbox.addEventListener("input", function () {
+		if (ugcidTextbox.value.length != 7) {
+		    queryBtn.disabled = true;
+		    console.log("disabled");
+		}
+	    });
+	});
+
+	queryBtn.addEventListener("click", async function() {  // Make the function async
+	    ugcid = ugcidTextbox.value;
+	    let title = await sendUgcQuery(ugcid); // Wait for the async function to resolve
+
+	    if (title === "") {
+		console.log("not there");    
+	    } else {
+		nameTextbox.value = title;
+	    }
+	});
+
+	async function sendUgcQuery(ugcid) {  // Make this function async
+	    const data = { ugc: ugcid };
+
+	    try {
+		const response = await fetch(`{{url_for('query_ugc')}}`, {
+		    method: "POST",
+		    headers: {
+			"Content-Type": "application/json"
+		    },
+		    body: JSON.stringify(data)
+		});
+
+		const responseData = await response.json();
+		return responseData['title'];  // Return the data properly
+	    } catch (error) {
+		console.error("Error:", error);
+		return "";  // Return an empty string in case of an error
+	    }
+	}
+</script>
 {% endblock %}
