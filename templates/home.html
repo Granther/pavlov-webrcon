@@ -27,7 +27,9 @@
             </div>
             {{ new_item_form.submit() }}
         </form>
-	<button id="queryBtn">Query</button>
+	<div class="pt-4">
+		<button id="queryBtn" class="bg-sky-500 disabled:bg-sky-900 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300">Query for Title</button>
+	</div>
     </div>
 </div>
 
@@ -128,9 +130,7 @@
 	    ugcid = ugcidTextbox.value;
 	    let title = await sendUgcQuery(ugcid); // Wait for the async function to resolve
 
-	    if (title === "") {
-		console.log("not there");    
-	    } else {
+	    if (title == null) {} else {
 		nameTextbox.value = title;
 	    }
 	});
