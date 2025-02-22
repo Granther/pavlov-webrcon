@@ -4,6 +4,9 @@ import hashlib
 import json
 
 from logger import create_logger
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class PavRCON:
     def __init__(self):
@@ -19,7 +22,7 @@ class PavRCON:
 
     def _authenticate_rcon(self) -> socket.socket:
         """Connect and do non rcon-standard password operations..."""
-       
+
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.connect((self.SERVER_IP, self.RCON_PORT))
@@ -135,7 +138,7 @@ class PavRCON:
                 rcon_socket.close()
                 return False
 
-    def send_command(command: str):
+    def send_command(self, command: str):
         rcon_socket = self._authenticate_rcon()
     
         if rcon_socket:
@@ -164,6 +167,7 @@ def server_status():
     return dict(status['ServerInfo'])
 
 if __name__ == "__main__":
+    print(server_status())
     # _pavrcon = PavRCON()
 
     # rcon_socket = _pavrcon._authenticate_rcon()
