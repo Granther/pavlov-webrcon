@@ -41,9 +41,6 @@ def load_user(user_id):
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
-    #map_form = NewMapForm()
-    #gamemode_form = NewGamemodeForm()
-    #mod_form = NewModForm()
     new_item_form = NewItemForm()
 
     mods = Mod.query.all()
@@ -72,27 +69,6 @@ def init_admin():
     create_admin()
     return redirect(url_for('index'))
 
-@app.route("/new_map", methods=['POST', 'GET'])
-def new_map():
-    map_form = NewMapForm()
-
-    if map_form.validate_on_submit():
-        result, msg = verify_compadible(map_form.id.data, modtype='map') 
-        if not result:
-            flash(msg)
-            return redirect(url_for('index'))
-    
-        res = create_component(form_type="Map", name=map_form.name.data, ugcid=map_form.id.data)
-        if not res:
-            flash("Error creating new map entry")
-            return redirect(url_for('index'))
-        
-        flash("Successfully created new map entry")
-        logger.debug(f"Create new map {map_form.name.data}")
-        return redirect(url_for('index'))
-    
-    return redirect(url_for('index'))
-
 @app.route("/new_item", methods=["POST", "GET"])
 def new_item():
     new_item_form = NewItemForm()
@@ -119,48 +95,6 @@ def new_item():
 
     return redirect(url_for('index'))
 
-@app.route("/new_gamemode", methods=['POST', 'GET'])
-def new_gamemode():
-    gamemode_form = NewGamemodeForm()
-
-    if gamemode_form.validate_on_submit():
-        result, msg = verify_compadible(gamemode_form.id.data, modtype='gamemode') 
-        if not result:
-            flash(msg)
-            return redirect(url_for('index'))
-        
-        res = create_component(form_type="GameMode", name=gamemode_form.name.data, ugcid=gamemode_form.id.data)
-        if not res:
-            flash("Error creating new gamemode entry")
-            return redirect(url_for('index'))
-        
-        flash("Successfully created new gamemode entry")
-        logger.debug(f"Create new gamemode {gamemode_form.name.data}")
-        return redirect(url_for('index'))
-
-    return redirect(url_for('index'))
-
-@app.route("/new_mod", methods=['POST', 'GET'])
-def new_mod():
-    mod_form = NewModForm()
-
-    if mod_form.validate_on_submit():
-        result, msg = verify_compadible(mod_form.id.data, modtype='mod') 
-        if not result:
-            flash(msg)
-            return redirect(url_for('index'))
-
-        res = create_component(form_type="Mod", name=mod_form.name.data, ugcid=mod_form.id.data)
-        if not res:
-            flash("Error creating new mod entry")
-            return redirect(url_for('index'))
-        
-        flash("Successfully created new mod entry")
-        logger.debug(f"Create new mod {mod_form.name.data}")
-        return redirect(url_for('index'))
-
-    return redirect(url_for('index'))
-    
 @app.route("/new_modpack", methods=['GET', 'POST'])
 def new_modpack():
     form = ModPackForm()
@@ -271,6 +205,7 @@ def admin_set_profile():
 
     if form.validate_on_submit():
         try:
+            logger.debug(form.profiles.data)
             profile = Profile.query.get(form.profiles.data)
             mods = []
             for mod in profile.modpack.mods:
@@ -404,6 +339,8 @@ def delete_profile(id):
 
 @app.route("/profile/<int:id>", methods=['GET'])
 def profile(id):
+    if current_user.is_authenticated:
+        logger.debug("Admin is logged in")
     profile = Profile.query.filter_by(id=id).first()
 
     return render_template("profile.html", profile=profile)
