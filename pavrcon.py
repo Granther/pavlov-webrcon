@@ -11,7 +11,7 @@ load_dotenv()
 class PavRCON:
     def __init__(self):
         self.SERVER_IP = os.environ.get("SERVER_IP")
-        self.RCON_PORT = int("9200")
+        self.RCON_PORT = int(os.environ.get("SERVER_PORT"))
         self.RCON_PASSWORD = os.environ.get("RCON_PASSWORD")
         self.logger = create_logger(__name__)
 

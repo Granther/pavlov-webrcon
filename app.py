@@ -9,7 +9,7 @@ from db_factory import db
 from models import User, Map, Mod, GameMode, ModPack, Profile
 from forms import LoginForm, RegisterForm, AddProfileRotationForm, NewGamemodeForm, NewModForm, NewMapForm, ModPackForm, NewProfileForm, RotateButton, SelectProfileForm, NewItemForm
 from logger import create_logger
-from pavrcon import set_profile, rotate_map
+from pavrcon import set_profile, rotate_map, server_status
 from utils import create_component, create_admin, get_profiles, admin_authorized, verify_compadible, create_profile_select_form, get_mod_url, seed_data, get_mod_field
 
 from dotenv import load_dotenv
@@ -50,8 +50,13 @@ def index():
     modpacks = ModPack.query.all()
     profiles = Profile.query.all()
 
+    status = server_status()
+    player_count = status['PlayerCount']
+    map_name = status['MapName']
+    gamemode_name = status['GameMode']
+
     #return render_template("home.html", map_form=map_form, mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks,
-    return render_template("home.html", mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks, profiles=profiles, new_item_form=new_item_form)
+    return render_template("home.html", mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks, profiles=profiles, new_item_form=new_item_form, player_count=player_count, map_name=map_name, gamemode_name=gamemode_name)
 
 @app.route("/init_admin", methods=['POST', 'GET'])
 def init_admin():
