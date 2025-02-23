@@ -52,24 +52,6 @@
 		</div>
 	    </div>
 	</div>
-
-    	<h2 class="text-center text-2xl font-semibold mb-6 text-white">Next</h2>
-	<div class="bg-gray-800 text-white p-4 rounded-lg w-full">
-	    <div class="grid grid-cols-3 gap-4 text-center">
-		<div>
-		    <p class="text-xl font-semibold">Map</p>
-		    <p class="text-lg font-normal">{{ next_map_name }}</p>
-		</div>
-		<div>
-		    <p class="text-xl font-semibold">Gamemode</p>
-		    <p class="text-lg font-normal">{{ next_gamemode_name }}</p>
-		</div>
-		<div>
-		    <p class="text-xl font-semibold">Next Modpack</p>
-		    <p class="text-lg font-normal">{{ next_gamemode_name }}</p>
-		</div>
-	    </div>
-	</div> 
     </div>
 </div>
 
@@ -83,11 +65,12 @@
 <div class="flex flex-row gap-x-6 items-start justify-center min-h-screen bg-gray-900 p-8">
     <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
         <div class="h-full overflow-y-auto p-4 rounded-lg">
-            <h1 class="text-xl text-white mt-4 text-center">Mods</h1>
-            <ul>
+            <h1 class="text-xl text-white my-4 text-center">Mods</h1>
+	    <input type="text" id="searchModsInput" placeholder="Search mods" class="w-full p-2 mb-3 rounded-lg bg-gray-700 text-white focus:outline-none">
+            <ul id="modList">
                 {% for mod in mods %}
                 <li class="py-2 border-b border-gray-600 text-white">
-                    <a href="{{url_for('mod', id=mod.id)}}">{{ mod.name }}</a>
+                    <a href="{{url_for('mod', id=mod.id)}}" class="mod-item">{{ mod.name }}</a>
                 </li>
                 {% endfor %}
             </ul>
@@ -96,11 +79,12 @@
 
     <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
         <div class="h-full overflow-y-auto p-4 rounded-lg">
-            <h1 class="text-xl text-white mt-4 text-center">Gamemodes</h1>
-            <ul>
+            <h1 class="text-xl text-white my-4 text-center">Gamemodes</h1>
+	    <input type="text" id="searchGamemodesInput" placeholder="Search gamemodes" class="w-full p-2 mb-3 rounded-lg bg-gray-700 text-white focus:outline-none">
+            <ul id="gamemodeList">
                 {% for gamemode in gamemodes %}
                 <li class="py-2 border-b border-gray-600 text-white">
-                    <a href="{{url_for('gamemode', id=gamemode.id)}}">{{ gamemode.name }}</a>
+                    <a href="{{url_for('gamemode', id=gamemode.id)}}" class="gamemode-item">{{ gamemode.name }}</a>
                 </li>             
                 {% endfor %}
             </ul>
@@ -109,11 +93,12 @@
 
     <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
         <div class="h-full overflow-y-auto p-4 rounded-lg">
-            <h1 class="text-xl text-white mt-4 text-center">Maps</h1>
-            <ul>
+            <h1 class="text-xl text-white my-4 text-center">Maps</h1>
+	    <input type="text" id="searchMapsInput" placeholder="Search maps" class="w-full p-2 mb-3 rounded-lg bg-gray-700 text-white focus:outline-none">
+            <ul id="mapList">
                 {% for map in maps %}
                 <li class="py-2 border-b border-gray-600 text-white">
-                    <a href="{{url_for('map', id=map.id)}}">{{ map.name }}</a>
+                    <a href="{{url_for('map', id=map.id)}}" class="map-item">{{ map.name }}</a>
                 </li>    
                 {% endfor %}
             </ul>
@@ -122,12 +107,13 @@
 
     <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
         <div class="h-full overflow-y-auto p-4 rounded-lg">
-            <h1 class="text-xl text-white mt-4 text-center">Modpacks</h1>
-            <ul>
+            <h1 class="text-xl text-white my-4 text-center">Modpacks</h1>
+            <input type="text" id="searchModpacksInput" placeholder="Search modpacks" class="w-full p-2 mb-3 rounded-lg bg-gray-700 text-white focus:outline-none">
+	    <ul id="modpackList">
                 {% for modpack in modpacks %}
  
                 <li class="py-2 border-b border-gray-600 text-white">
-                    <a href="{{url_for('modpack', id=modpack.id)}}">{{ modpack.name }}</a>
+                    <a href="{{url_for('modpack', id=modpack.id)}}" class="modpack-item">{{ modpack.name }}</a>
                 </li>          
                 {% endfor %}
             </ul>
@@ -136,11 +122,12 @@
 
     <div class="bg-gray-800 shadow-lg p-2 w-full max-w-xs rounded-lg h-[80vh]">
         <div class="h-full overflow-y-auto p-4 rounded-lg">
-            <h1 class="text-xl text-white mt-4 text-center">Profiles</h1>
-            <ul>
+            <h1 class="text-xl text-white my-4 text-center">Profiles</h1>
+	    <input type="text" id="searchProfilesInput" placeholder="Search profiles" class="w-full p-2 mb-3 rounded-lg bg-gray-700 text-white focus:outline-none">
+	    <ul id="profileList">
                 {% for profile in profiles %}
                 <li class="py-2 border-b border-gray-600 text-white">
-                    <a href="{{url_for('profile', id=profile.id)}}">{{ profile.name }}</a>
+                    <a href="{{url_for('profile', id=profile.id)}}" class="profile-item">{{ profile.name }}</a>
                 </li>                
                 {% endfor %}
             </ul>
@@ -196,5 +183,51 @@
 		return "";  // Return an empty string in case of an error
 	    }
 	}
+
+    document.getElementById("searchModsInput").addEventListener("input", function() {
+	let filter = this.value.toLowerCase();
+	let items = document.querySelectorAll("#modList .mod-item");
+
+	items.forEach(item => {
+	    let text = item.textContent.toLowerCase();
+	    item.parentElement.style.display = text.includes(filter) ? "" : "none";
+	});
+    });
+    document.getElementById("searchMapsInput").addEventListener("input", function() {
+	let filter = this.value.toLowerCase();
+	let items = document.querySelectorAll("#mapList .map-item");
+
+	items.forEach(item => {
+	    let text = item.textContent.toLowerCase();
+	    item.parentElement.style.display = text.includes(filter) ? "" : "none";
+	});
+    });
+    document.getElementById("searchGamemodesInput").addEventListener("input", function() {
+	let filter = this.value.toLowerCase();
+	let items = document.querySelectorAll("#gamemodeList .gamemode-item");
+
+	items.forEach(item => {
+	    let text = item.textContent.toLowerCase();
+	    item.parentElement.style.display = text.includes(filter) ? "" : "none";
+	});
+    });
+    document.getElementById("searchModpacksInput").addEventListener("input", function() {
+	let filter = this.value.toLowerCase();
+	let items = document.querySelectorAll("#modpackList .modpack-item");
+
+	items.forEach(item => {
+	    let text = item.textContent.toLowerCase();
+	    item.parentElement.style.display = text.includes(filter) ? "" : "none";
+	});
+    });
+    document.getElementById("searchProfilesInput").addEventListener("input", function() {
+	let filter = this.value.toLowerCase();
+	let items = document.querySelectorAll("#profileList .profile-item");
+
+	items.forEach(item => {
+	    let text = item.textContent.toLowerCase();
+	    item.parentElement.style.display = text.includes(filter) ? "" : "none";
+	});
+    });
 </script>
 {% endblock %}

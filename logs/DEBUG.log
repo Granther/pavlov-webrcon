@@ -652,3 +652,67 @@
 2025-02-22 19:36:37,799 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
 2025-02-22 19:37:33,758 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
 2025-02-22 19:37:48,942 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:43:08,732 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:45:08,302 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:45:21,274 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:46:35,508 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:46:46,237 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:47:48,770 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:55:54,933 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:56:24,192 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:56:29,784 - __main__ - DEBUG - non
+2025-02-22 19:56:29,785 - __main__ - DEBUG - Datacenter
+2025-02-22 19:56:29,870 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:56:35,517 - pavrcon - INFO - Cleared mods from Game.ini
+2025-02-22 19:56:35,539 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-02-22 19:56:35,560 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC2840452', 'GameMode': 'GUN'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-02-22 19:56:35,572 - pavrcon - INFO - Removed {'MapId': 'UGC2840452', 'GameMode': 'GUN'} from rotation
+2025-02-22 19:56:35,572 - __main__ - DEBUG - Set new profile: huh
+2025-02-22 19:56:38,068 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:56:51,619 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:57:27,229 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:58:26,508 - pavrcon - INFO - Cleared mods from Game.ini
+2025-02-22 19:58:26,519 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-02-22 19:58:26,530 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-02-22 19:58:26,530 - __main__ - DEBUG - Set new profile: huh
+2025-02-22 19:58:31,210 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:59:41,797 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:59:41,798 - __main__ - DEBUG - uiqhiheiuqe: None
+2025-02-22 19:59:51,427 - pavrcon - INFO - Cleared mods from Game.ini
+2025-02-22 19:59:51,446 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-02-22 19:59:51,460 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-02-22 19:59:51,460 - __main__ - DEBUG - Set new profile: huh
+2025-02-22 19:59:56,233 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 19:59:56,233 - __main__ - DEBUG - uiqhiheiuqe: None
+2025-02-22 20:02:50,808 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:03:26,353 - __main__ - DEBUG - 4380933
+2025-02-22 20:03:26,982 - __main__ - DEBUG - Daniel's custom guns
+2025-02-22 20:03:33,643 - __main__ - DEBUG - name: Daniel's custom guns
+2025-02-22 20:03:34,011 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:03:44,297 - __main__ - DEBUG - 4380933
+2025-02-22 20:03:44,598 - __main__ - DEBUG - Daniel's custom guns
+2025-02-22 20:03:46,241 - __main__ - DEBUG - name: Daniel's custom guns
+2025-02-22 20:03:46,612 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:04:10,237 - __main__ - DEBUG - 4431695
+2025-02-22 20:04:10,611 - __main__ - DEBUG - [MOD] Boombox - Playlist [SOURCE]
+2025-02-22 20:04:13,066 - __main__ - DEBUG - name: [MOD] Boombox - Playlist [SOURCE]
+2025-02-22 20:04:13,385 - __main__ - DEBUG - Created new Mod [MOD] Boombox - Playlist [SOURCE]
+2025-02-22 20:04:13,526 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:04:23,526 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:19:14,509 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:20:21,186 - __main__ - DEBUG - 4533132
+2025-02-22 20:20:21,669 - __main__ - DEBUG - Nerf Gun Mod
+2025-02-22 20:20:24,694 - __main__ - DEBUG - name: Nerf Gun Mod
+2025-02-22 20:20:25,059 - __main__ - DEBUG - Created new Mod Nerf Gun Mod
+2025-02-22 20:20:25,139 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:21:49,730 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:22:42,263 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:23:10,751 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:23:44,558 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:26:01,469 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:34:10,670 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:34:18,723 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:35:04,201 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:35:46,487 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:37:06,898 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-02-22 20:41:26,955 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
