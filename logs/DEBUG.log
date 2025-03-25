@@ -751,3 +751,4 @@
 2025-03-25 02:44:28,031 - __main__ - DEBUG - Set new profile: test1
 2025-03-25 02:44:49,347 - pavrcon - INFO - Successfully rotated map
 2025-03-25 02:45:10,276 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:49:05,991 - pavrcon - INFO - Successfully sent RCON command: ServerInfo

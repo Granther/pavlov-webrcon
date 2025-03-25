@@ -1,0 +1,3 @@
+- See size of mods
+- Random profiles
+- Gamemode profiles, like a rotating set of SND, different configs one after the other

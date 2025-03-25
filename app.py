@@ -54,15 +54,7 @@ def index():
     map_name = status['MapName']
     gamemode_name = status['GameMode']
 
-    #logger.debug(f"uiqhiheiuqe: {current_profile}")
-
-    #curr_profile_gamemode = current_profile.gamemode.name
-    #curr_profile_map = current_profile.map.name
-    #curr_profile_modpack = url_for("modpack", current_profile.mod.id)
-
-    #return render_template("home.html", map_form=map_form, mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks,
     return render_template("home.html", mods=mods, maps=maps, gamemodes=gamemodes, modpacks=modpacks, profiles=profiles, new_item_form=new_item_form, player_count=player_count, map_name=map_name, gamemode_name=gamemode_name)
-                           #curr_profile_gamemode=curr_profile_gamemode, curr_profile_map=curr_profile_map)
 
 @app.route("/init_admin", methods=['POST', 'GET'])
 def init_admin():

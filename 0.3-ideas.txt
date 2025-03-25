@@ -1,5 +1,0 @@
-# Ideas
-- Searchable profiles
-- Get server status
-- Less confusing Map/Mod/Mode addition
-- See size of mods
