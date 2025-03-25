@@ -84,6 +84,10 @@ def verify_compadible(ugcid: str, modtype: str):
         return False, "ID must include 'UGC' at the beginning, boomer, like so, UGC4206969"
 
     try:
+        #ugcid_num = verify_UGC(ugcid)
+        #if not ugcid_num: # Returned False, bad id
+        #    raise Exception(f"Invalid UGC passed: {ugcid}")
+        
         response = requests.get(f'{url}{ugcid}', 
                                 params={'api_key': os.getenv('MODIO_API_KEY')}, 
                                 headers = headers)
@@ -110,13 +114,18 @@ def get_mod_url(ugcid: str):
     'Accept': 'application/json'
     }
     url = f"https://u-24475661.modapi.io/v1/games/3959/mods/"
+    # A query to this URL takes a UGC without a UGC preface
 
     if not ugcid:
         logger.error("Not able to verify integrity of UGCID while getting URL")
         return None
 
     try:
-        response = requests.get(f'{url}{ugcid}', 
+        ugcid_num = verify_UGC(ugcid)
+        if not ugcid_num: # Returned False, bad id
+            raise Exception(f"Invalid UGC passed: {ugcid}")
+
+        response = requests.get(f'{url}{ugcid_num}', 
                                 params={'api_key': os.getenv('MODIO_API_KEY')}, 
                                 headers = headers)
         json_response = json.loads(response.content)

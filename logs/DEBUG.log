@@ -716,3 +716,38 @@
 2025-02-22 20:35:46,487 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
 2025-02-22 20:37:06,898 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
 2025-02-22 20:41:26,955 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:40:44,053 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:40:52,363 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:41:03,209 - __main__ - DEBUG - Querying 4255826
+2025-03-25 02:41:13,686 - __main__ - DEBUG - Querying 4255826
+2025-03-25 02:41:22,814 - __main__ - DEBUG - name: [GUN] Marco's Glock 18c (Full Auto)
+2025-03-25 02:41:22,815 - utils - ERROR - Error occured when checking UGC compadibility: Invalid UGC passed: 4255826
+2025-03-25 02:41:22,904 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:42:23,657 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:42:27,548 - __main__ - DEBUG - Querying 4255826
+2025-03-25 02:42:29,229 - __main__ - DEBUG - name: [GUN] Marco's Glock 18c (Full Auto)
+2025-03-25 02:42:29,545 - __main__ - DEBUG - Created new Map [GUN] Marco's Glock 18c (Full Auto)
+2025-03-25 02:42:29,617 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:42:35,743 - __main__ - DEBUG - Querying 4255826
+2025-03-25 02:42:37,111 - __main__ - DEBUG - name: [GUN] Marco's Glock 18c (Full Auto)
+2025-03-25 02:42:37,436 - __main__ - DEBUG - Created new Mod [GUN] Marco's Glock 18c (Full Auto)
+2025-03-25 02:42:37,524 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:42:51,572 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:43:29,177 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:43:40,769 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:43:52,411 - __main__ - DEBUG - test1
+2025-03-25 02:43:52,411 - __main__ - DEBUG - Datacenter
+2025-03-25 02:43:52,499 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:44:21,558 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 02:44:27,889 - __main__ - DEBUG - 2
+2025-03-25 02:44:27,964 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 02:44:27,979 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC4255826', 'Successful': True}
+2025-03-25 02:44:27,979 - pavrcon - INFO - Added modID UGC4255826 to Game.ini
+2025-03-25 02:44:27,988 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-03-25 02:44:27,995 - pavrcon - INFO - Current Rotation: [{'MapId': 'UGC4594836', 'GameMode': 'TDM'}, {'MapId': 'UGC4594836', 'GameMode': 'TDM'}, {'MapId': 'UGC4594836', 'GameMode': 'TDM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-03-25 02:44:28,008 - pavrcon - INFO - Removed {'MapId': 'UGC4594836', 'GameMode': 'TDM'} from rotation
+2025-03-25 02:44:28,018 - pavrcon - INFO - Removed {'MapId': 'UGC4594836', 'GameMode': 'TDM'} from rotation
+2025-03-25 02:44:28,030 - pavrcon - INFO - Removed {'MapId': 'UGC4594836', 'GameMode': 'TDM'} from rotation
+2025-03-25 02:44:28,031 - __main__ - DEBUG - Set new profile: test1
+2025-03-25 02:44:49,347 - pavrcon - INFO - Successfully rotated map
+2025-03-25 02:45:10,276 - pavrcon - INFO - Successfully sent RCON command: ServerInfo

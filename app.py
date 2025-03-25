@@ -83,8 +83,9 @@ def new_item():
         if not result:
             flash(msg)
             return redirect(url_for('index'))
-        
-        res = create_component(form_type=item_type_name, name=new_item_form.name.data, ugcid=new_item_form.id.data)
+       
+        ugcid = f"UGC{new_item_form.id.data}" # Store UGCid as UGCxxxx
+        res = create_component(form_type=item_type_name, name=new_item_form.name.data, ugcid=ugcid)
         if not res:
             flash(f"Error creating new {new_item_form.type.data} entry")
             return redirect(url_for('index'))
@@ -153,9 +154,8 @@ def login():
 def query_ugc():
     data = request.json
     ugcid = data['ugc']
-    logger.debug(ugcid)
+    logger.debug(f"Querying {ugcid}")
     ug_name = get_mod_field(ugcid=str(ugcid), field_name='name')
-    logger.debug(ug_name)
     return jsonify({"title": ug_name})
 
 @app.route("/boomer")
