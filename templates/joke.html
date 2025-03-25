@@ -10,6 +10,11 @@
 
 <body>
     <h1 class="text-2xl">Ha, you thought! You have to be an admin :(</h1>
+	<a href="{{ url_for('login') }}">
+		<button class="bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300">
+			Login
+		</button>
+	</a>
     <img src="{{ url_for('static', filename='motorcycle.jpeg') }}" class="object-fill h-screen w-screen " />
 </body>
 

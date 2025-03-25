@@ -20,19 +20,19 @@ class NewItemForm(FlaskForm):
     submit = SubmitField('Add', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 
 class ModPackForm(FlaskForm):
-    name = StringField('Modpack Name', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off"})
+    name = StringField('Modpack Name', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off", "autofocus": True})
     mods = QuerySelectMultipleFieldWithChecks("Mods")
     submit = SubmitField('Submit', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-black py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 
 class NewProfileForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off"})
+    name = StringField('Name', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off", "autofocus": True})
     map = QuerySelectField("Map", render_kw={"class": "bg-gray-900 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
     gamemode = QuerySelectField("Gamemode", render_kw={"class": "bg-gray-900 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
     modpack = QuerySelectField("ModPack", render_kw={"class": "bg-gray-900 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
     submit = SubmitField('Sumbit', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-black py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off"})
+    username = StringField('Username', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off", "autofocus": True})
     password = PasswordField('Password', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off"})
     submit = SubmitField('Login', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 
@@ -61,7 +61,7 @@ class NewGamemodeForm(FlaskForm):
     submit = SubmitField('Add', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 
 class NewModpackForm(FlaskForm):
-    name = StringField('Modpack Name', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-white px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off"})
+    name = StringField('Modpack Name', validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-white px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off", "autofocus": True})
     id = StringField('ID', default="UGC", validators=[DataRequired()], render_kw={"class": "border border-black rounded-lg text-black px-2 py-1 focus:outline-none w-full text-lg", "autocomplete":"off"})
     submit = SubmitField('Add', render_kw={"class": "bg-sky-500 hover:bg-sky-700 text-white py-2 px-5 rounded-full font-bold text-md transition duration-300"})
 

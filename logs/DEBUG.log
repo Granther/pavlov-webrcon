@@ -752,3 +752,139 @@
 2025-03-25 02:44:49,347 - pavrcon - INFO - Successfully rotated map
 2025-03-25 02:45:10,276 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
 2025-03-25 02:49:05,991 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:02:46,130 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:02:46,142 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:02:55,477 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:02:55,495 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:03:02,680 - __main__ - DEBUG - 2
+2025-03-25 03:03:02,732 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:03:02,743 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 03:03:02,754 - pavrcon - INFO - {'Command': 'UGCAddMod', 'Successful': False}
+2025-03-25 03:03:02,755 - pavrcon - CRITICAL - Error adding modID
+2025-03-25 03:03:02,765 - pavrcon - INFO - {'Command': 'UGCAddMod', 'Successful': False}
+2025-03-25 03:03:02,766 - pavrcon - CRITICAL - Error adding modID
+2025-03-25 03:03:02,778 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC4255826', 'Successful': True}
+2025-03-25 03:03:02,778 - pavrcon - INFO - Added modID UGC4255826 to Game.ini
+2025-03-25 03:03:02,795 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-03-25 03:03:02,810 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-03-25 03:03:02,811 - __main__ - DEBUG - Set new profile: test1
+2025-03-25 03:04:15,778 - __main__ - DEBUG - 2
+2025-03-25 03:04:15,840 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:04:15,861 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 03:04:15,882 - pavrcon - INFO - {'Command': 'UGCAddMod', 'Successful': False}
+2025-03-25 03:04:15,883 - pavrcon - CRITICAL - Error adding modID 4431695 to Game.ini
+2025-03-25 03:04:15,893 - pavrcon - INFO - {'Command': 'UGCAddMod', 'Successful': False}
+2025-03-25 03:04:15,894 - pavrcon - CRITICAL - Error adding modID 4533132 to Game.ini
+2025-03-25 03:04:15,905 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC4255826', 'Successful': True}
+2025-03-25 03:04:15,906 - pavrcon - INFO - Added modID UGC4255826 to Game.ini
+2025-03-25 03:04:15,916 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-03-25 03:04:15,927 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-03-25 03:04:15,928 - __main__ - DEBUG - Set new profile: test1
+2025-03-25 03:05:41,385 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:05:41,400 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:06:08,356 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:06:08,370 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:09:08,732 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:09:08,745 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:09:17,653 - __main__ - DEBUG - 2
+2025-03-25 03:09:17,712 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:09:17,724 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 03:09:17,734 - pavrcon - INFO - {'Command': 'UGCAddMod', 'Successful': False}
+2025-03-25 03:09:17,734 - pavrcon - CRITICAL - Error adding modID 4431695 to Game.ini due to it missing the UGC pretext
+2025-03-25 03:09:17,745 - pavrcon - INFO - {'Command': 'UGCAddMod', 'Successful': False}
+2025-03-25 03:09:17,745 - pavrcon - CRITICAL - Error adding modID 4533132 to Game.ini due to it missing the UGC pretext
+2025-03-25 03:09:17,758 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC4255826', 'Successful': True}
+2025-03-25 03:09:17,758 - pavrcon - INFO - Added modID UGC4255826 to Game.ini
+2025-03-25 03:09:17,768 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-03-25 03:09:17,779 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-03-25 03:09:17,780 - __main__ - DEBUG - Set new profile: test1
+2025-03-25 03:13:34,132 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:13:34,150 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:13:41,838 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:13:41,847 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:15:22,262 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:15:22,275 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:15:38,112 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:15:38,122 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:17:48,896 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:17:48,916 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:17:54,664 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:17:54,682 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:18:00,501 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:18:00,517 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:19:04,672 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:19:04,682 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:19:10,475 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:19:10,495 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:19:36,946 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:19:36,963 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:19:48,474 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:19:48,484 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:20:07,782 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:20:07,793 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:20:21,880 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:20:21,898 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:20:35,766 - __main__ - DEBUG - Deleting component of type: Mod with UGCId of UGC4255826
+2025-03-25 03:20:35,815 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:20:35,835 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:20:53,023 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:20:53,040 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:20:59,039 - __main__ - DEBUG - 2
+2025-03-25 03:20:59,088 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:20:59,101 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 03:20:59,125 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-03-25 03:20:59,137 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-03-25 03:20:59,137 - __main__ - DEBUG - Set new profile: test1
+2025-03-25 03:21:21,893 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:21:21,913 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:21:30,584 - __main__ - DEBUG - Querying 4255826
+2025-03-25 03:21:34,243 - __main__ - DEBUG - name: [GUN] Marco's Glock 18c (Full Auto)
+2025-03-25 03:21:34,662 - __main__ - DEBUG - Created new Mod [GUN] Marco's Glock 18c (Full Auto)
+2025-03-25 03:21:34,740 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:21:34,756 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:21:43,403 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:21:43,420 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:21:49,158 - __main__ - DEBUG - 2
+2025-03-25 03:21:49,192 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:21:49,203 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 03:21:49,215 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC4255826', 'Successful': True}
+2025-03-25 03:21:49,215 - pavrcon - INFO - Added modID UGC4255826 to Game.ini
+2025-03-25 03:21:49,225 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-03-25 03:21:49,238 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-03-25 03:21:49,239 - __main__ - DEBUG - Set new profile: test1
+2025-03-25 03:22:10,987 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:22:11,002 - pavrcon - INFO - Successfully rotated map
+2025-03-25 03:22:13,492 - __main__ - DEBUG - 1
+2025-03-25 03:22:13,529 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:22:13,549 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 03:22:13,560 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-03-25 03:22:13,570 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-03-25 03:22:13,571 - __main__ - DEBUG - Set new profile: huh
+2025-03-25 03:22:45,788 - __main__ - DEBUG - 1
+2025-03-25 03:22:45,855 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:22:45,873 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 03:22:45,895 - pavrcon - INFO - Added new rotation of datacenter with gamemode DM
+2025-03-25 03:22:45,916 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}]
+2025-03-25 03:22:45,917 - __main__ - DEBUG - Set new profile: huh
+2025-03-25 03:23:45,964 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:23:45,982 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:23:58,688 - __main__ - DEBUG - test1
+2025-03-25 03:23:58,688 - __main__ - DEBUG - Sand
+2025-03-25 03:23:58,791 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:23:58,805 - pavrcon - INFO - Successfully sent RCON command: ServerInfo
+2025-03-25 03:24:03,763 - __main__ - DEBUG - 3
+2025-03-25 03:24:03,795 - pavrcon - DEBUG - Successfully authenticated pavlov rcon
+2025-03-25 03:24:03,814 - pavrcon - INFO - Cleared mods from Game.ini
+2025-03-25 03:24:03,839 - pavrcon - INFO - {'Command': 'UGCAddMod', 'ModId': 'UGC4255826', 'Successful': True}
+2025-03-25 03:24:03,839 - pavrcon - INFO - Added modID UGC4255826 to Game.ini
+2025-03-25 03:24:03,848 - pavrcon - INFO - Added new rotation of sand with gamemode INFECTION
+2025-03-25 03:24:03,858 - pavrcon - INFO - Current Rotation: [{'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'datacenter', 'GameMode': 'DM'}, {'MapId': 'sand', 'GameMode': 'INFECTION'}]
+2025-03-25 03:24:03,870 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2025-03-25 03:24:03,886 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2025-03-25 03:24:03,903 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2025-03-25 03:24:03,915 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2025-03-25 03:24:03,925 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2025-03-25 03:24:03,938 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2025-03-25 03:24:03,959 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2025-03-25 03:24:03,972 - pavrcon - INFO - Removed {'MapId': 'datacenter', 'GameMode': 'DM'} from rotation
+2025-03-25 03:24:03,972 - __main__ - DEBUG - Set new profile: test2

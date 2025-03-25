@@ -6,6 +6,8 @@ import json
 from logger import create_logger
 from dotenv import load_dotenv
 
+from utils import verify_UGC
+
 load_dotenv()
 
 class PavRCON:
@@ -30,7 +32,7 @@ class PavRCON:
             # Wait for "Password: " prompt
             server_prompt = sock.recv(1024).decode('utf-8')
             if 'Password: ' not in server_prompt:
-                print("Did not receive password prompt from server")
+                self.logger.fatal("Did not receive password prompt from server")
                 return None
             
             # Send the MD5 hash of the RCON password
@@ -40,14 +42,13 @@ class PavRCON:
             # Receive authentication response
             auth_response = sock.recv(1024).decode('utf-8')
             if 'Authenticated=1' in auth_response:
-                print("Successfully authenticated!")
+                self.logger.debug("Successfully authenticated pavlov rcon")
                 return sock
             else:
-                print("Authentication failed!")
                 sock.close()
-                return None
+                raise Exception("Rcon authentication failed")
         except Exception as e:
-            print(f"Failed to connect or authenticate: {e}")
+            self.logger.fatal(f"Failed to connect or authenticate: {e}")
             return None
 
     def _send_rcon_command(self, sock, command):
@@ -69,7 +70,7 @@ class PavRCON:
             json_response = json.loads(response.strip())
             return json_response
         except Exception as e:
-            print(f"Error sending command: {e}")
+            self.logger.fatal(f"Error sending rcon command: {e}")
             return None
         
     def set_profile(self, map_id: str, gamemode_id: str, mods: list) -> bool:
@@ -90,8 +91,11 @@ class PavRCON:
                 self.logger.info(response)
                 if bool(response['Successful']):
                     self.logger.info(f"Added modID {mod} to Game.ini")
-                else:
-                    self.logger.fatal("Error adding modID")
+                else: # this is a soft failure, we continue
+                    if not verify_UGC(mod):
+                        self.logger.fatal(f"Error adding modID {mod} to Game.ini due to it missing the UGC pretext")
+                    else:
+                        self.logger.fatal(f"Unknown error adding modID {mod} to Game.ini")
 
             new_rotation_response = self._send_rcon_command(rcon_socket, f"AddMapRotation {map_id} {gamemode_id}")
             if bool(new_rotation_response['Successful']):
